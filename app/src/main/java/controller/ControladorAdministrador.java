@@ -9,40 +9,42 @@ import model.Administrador;
 import model.Empleado;
 import model.Producto;
 import comprafacil.myapp.root.comprafacil.ValidarUsuarioActivity;
+import persistencia.EmpleadoBD;
 
 /**
  * Created by root_user on 19/04/16.
  */
 public class ControladorAdministrador {
     /*Atributos*/
-    private Administrador administrador;
+    private ArrayList<Empleado> baseDatos;
     private ValidarUsuarioActivity vista;
 
-    public ControladorAdministrador(Administrador administrador, ValidarUsuarioActivity vista) {
-        this.administrador = administrador;
+    public ControladorAdministrador(ValidarUsuarioActivity vista) {
+        EmpleadoBD listaEmpleados = new EmpleadoBD();
+        this.baseDatos = listaEmpleados.getBaseDatos();
         this.vista = vista;
     }
 
-    public int verificarUsuario(){
+    public int verificarUsuario() {
 
-        String modeloUsuario = administrador.getUsuario();
         String vistaUsuario = vista.getUsuario();
-        String modeloClave = administrador.getClave();
         String vistaClave = vista.getClave();
+        int i = 0;
 
-
-        if (modeloUsuario.compareTo(vistaUsuario) == 0 && modeloClave.compareTo(vistaClave) == 0){
-            Toast.makeText(vista, "Validación correcta", Toast.LENGTH_SHORT).show();
-            return 1;
+        for (i = 0; i < baseDatos.size(); i++) {
+            if (baseDatos.get(i).getUsuario().compareTo(vistaUsuario) == 0 && baseDatos.get(i).getClave().compareTo(vistaClave) == 0) {
+                Toast.makeText(vista, "Validación correcta", Toast.LENGTH_SHORT).show();
+                return 1;
+            }
         }
-        else{
-            Toast.makeText(vista,"Validación incorrecta", Toast.LENGTH_SHORT).show();
+
+            Toast.makeText(vista, "Validación incorrecta", Toast.LENGTH_SHORT).show();
             return 0;
+
         }
 
-    }
 
-   // public void consultarInventario(ConsultaInventarioActivity vista){
+        // public void consultarInventario(ConsultaInventarioActivity vista){
         /*Aqui se deserealizará el objeto de productos y será asignado al arraylist*/
    /*     ArrayList<Producto> inventario;
     }*/
