@@ -20,7 +20,7 @@ public class EmpleadoBD implements Serializable {
 
     public ArrayList<Empleado> getBaseDatos(){
         try {
-            FileInputStream door = new FileInputStream("empleados_bd.ser");
+            FileInputStream door = new FileInputStream("empleados");
             ObjectInputStream reader = new ObjectInputStream(door);
             bdEmpleados = new ArrayList<Empleado>();
             bdEmpleados = (ArrayList<Empleado>)reader.readObject();
@@ -37,7 +37,7 @@ public class EmpleadoBD implements Serializable {
 
     public void setBaseDatos(ArrayList<Empleado> bdEmpleados){
         try {
-            FileOutputStream file = new FileOutputStream("empleados_bd.ser");
+            FileOutputStream file = new FileOutputStream("empleados");
             ObjectOutputStream obj = new ObjectOutputStream(file);
             obj.writeObject(bdEmpleados);
             obj.close();
