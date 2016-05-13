@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.content.Intent;
+
+import model.Administrador;
 
 public class ValidarUsuarioActivity extends AppCompatActivity implements View.OnClickListener {
     //Atributos
@@ -24,7 +27,10 @@ public class ValidarUsuarioActivity extends AppCompatActivity implements View.On
 
     @Override
     public void onClick(View v) {
-
+        if(v.getId() == R.id.button_validarUsuario){
+            Intent i = new Intent(this, AdministradorActivity.class);
+            startActivity(i);
+        }
     }
 
     public String getUsuario(){

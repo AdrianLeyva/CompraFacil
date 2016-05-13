@@ -15,7 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ValidarUsuarioActivity"></activity>
+        <activity android:name=".ValidarUsuarioActivity" />
+        <activity android:name=".AdministradorActivity"></activity>
     </application>
 
 </manifest>
