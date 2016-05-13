@@ -27,16 +27,18 @@ public class ControladorAdministrador {
 
     public int verificarUsuario() {
 
+        String modeloUsuario = "adrian";
+        String modeloClave = "leyva";
         String vistaUsuario = vista.getUsuario();
         String vistaClave = vista.getClave();
         int i = 0;
 
-        for (i = 0; i < baseDatos.size(); i++) {
-            if (baseDatos.get(i).getUsuario().compareTo(vistaUsuario) == 0 && baseDatos.get(i).getClave().compareTo(vistaClave) == 0) {
+        //for (i = 0; i < baseDatos.size(); i++) {
+            if (modeloUsuario.compareTo(vistaUsuario) == 0 && modeloClave.compareTo(vistaClave) == 0) {
                 Toast.makeText(vista, "Validación correcta", Toast.LENGTH_SHORT).show();
                 return 1;
             }
-        }
+        //}
 
             Toast.makeText(vista, "Validación incorrecta", Toast.LENGTH_SHORT).show();
             return 0;
