@@ -8,8 +8,7 @@ import java.util.ArrayList;
 import model.Administrador;
 import model.Empleado;
 import model.Producto;
-import progra.myapp.root.buyyourself.AdministradorActivity;
-import progra.myapp.root.buyyourself.ValidarUsuarioActivity;
+import comprafacil.myapp.root.comprafacil.ValidarUsuarioActivity;
 
 /**
  * Created by root_user on 19/04/16.
