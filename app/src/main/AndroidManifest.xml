@@ -8,10 +8,15 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ModoUsuarioActivity">
+        <activity
+            android:name=".ModoUsuarioActivity"
+            android:label="@string/activity_modo_usuario"
+            />
+        <activity
+            android:name=".ValidarUsuarioActivity"
+            android:label="@string/activity_validar_administrador"
+            />
 
-        </activity>
-        <activity android:name=".ValidarUsuarioActivity" />
         <activity android:name=".AdministradorActivity" />
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
