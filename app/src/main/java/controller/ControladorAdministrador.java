@@ -27,8 +27,6 @@ public class ControladorAdministrador {
 
     public int verificarUsuario() {
 
-        String modeloUsuario = "adrian";
-        String modeloClave = "leyva";
         String vistaUsuario = vista.getUsuario();
         String vistaClave = vista.getClave();
         int i = 0;
