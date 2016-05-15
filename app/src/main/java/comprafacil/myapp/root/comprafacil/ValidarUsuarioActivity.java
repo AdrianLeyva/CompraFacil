@@ -3,6 +3,8 @@ package comprafacil.myapp.root.comprafacil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.content.Intent;
@@ -24,6 +26,9 @@ public class ValidarUsuarioActivity extends AppCompatActivity implements View.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_validar_usuario);
+        //Hacer la actividad FULLSCREEN
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         usuario = (EditText) findViewById(R.id.editText_usuario);
         clave = (EditText) findViewById(R.id.editText_contraseña);
         botonValidar = (Button) findViewById(R.id.button_validarUsuario);
