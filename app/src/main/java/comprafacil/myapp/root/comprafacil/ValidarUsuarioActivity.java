@@ -31,7 +31,7 @@ public class ValidarUsuarioActivity extends AppCompatActivity implements View.On
         botonValidar = (Button) findViewById(R.id.button_validarUsuario);
         botonValidar.setOnClickListener(this);
     }
-
+    //Metodo onClick
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.button_validarUsuario) {
