@@ -13,4 +13,6 @@
     <string name="Producto">Producto</string>
     <string name="Cantidad">Cantidad</string>
     <string name="Total">Total</string>
+    <string name="Confirmar">Confirmar Compra</string>
+    <string name="Cancelar">Cancelar Compra</string>
 </resources>
