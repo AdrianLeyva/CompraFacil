@@ -1,50 +1,64 @@
 package persistencia;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.concurrent.RecursiveTask;
+import android.sax.StartElementListener;
+import android.view.View;
+import android.widget.Toast;
 
-import model.Empleado;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.xml.transform.Result;
+
+import comprafacil.myapp.root.comprafacil.ValidarUsuarioActivity;
 
 /**
  * Created by root_user on 6/05/16.
  */
-public class EmpleadoBD implements Serializable {
-    //Atributos
-    private ArrayList<Empleado> bdEmpleados;
+public class EmpleadoBD{
 
-    public ArrayList<Empleado> getBaseDatos(){
-        try {
-            FileInputStream door = new FileInputStream("empleados");
-            ObjectInputStream reader = new ObjectInputStream(door);
-            bdEmpleados = new ArrayList<Empleado>();
-            bdEmpleados = (ArrayList<Empleado>)reader.readObject();
-            reader.close();
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
-        catch (ClassNotFoundException e){
-            e.printStackTrace();
-        }
-        return bdEmpleados;
+    private String servidor = "jdbc:mysql://localhost:3306/Empleados";
+    private String usuario = "root'@'localhost";
+    private String clave = "";
+    private String driver = "com.mysql.jdbc.Driver";
+    private Connection conexion;
+    private Statement st;
+    private ResultSet rs;
+    private ValidarUsuarioActivity vista;
+
+    public EmpleadoBD(ValidarUsuarioActivity vista){
+        this.vista = vista;
     }
 
-    public void setBaseDatos(ArrayList<Empleado> bdEmpleados){
+
+    public Connection getConexion(){
+        return conexion;
+    }
+
+    public ResultSet getBaseDatos(){
+
         try {
-            FileOutputStream file = new FileOutputStream("empleados");
-            ObjectOutputStream obj = new ObjectOutputStream(file);
-            obj.writeObject(bdEmpleados);
-            obj.close();
+            conexion = DriverManager.getConnection(servidor,usuario,clave);
+        } catch (SQLException e){
+            Toast toast = Toast.makeText(vista,"Validación correcta",Toast.LENGTH_SHORT);
+            toast.show();
         }
-        catch (IOException e){
+
+        Connection con = getConexion();
+        String sql = "select * from Empleados";
+
+        try {
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
+        }
+
+        catch (SQLException e){
 
         }
+        return rs;
     }
+
 
 }

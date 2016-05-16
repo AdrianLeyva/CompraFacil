@@ -26,38 +26,34 @@ public class ValidarUsuarioActivity extends AppCompatActivity implements View.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_validar_usuario);
-        //Hacer la actividad FULLSCREEN
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         usuario = (EditText) findViewById(R.id.editText_usuario);
         clave = (EditText) findViewById(R.id.editText_contraseña);
         botonValidar = (Button) findViewById(R.id.button_validarUsuario);
         botonValidar.setOnClickListener(this);
-        iniciarBaseDatos();
     }
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.button_validarUsuario){
+        if (v.getId() == R.id.button_validarUsuario) {
 
             ControladorAdministrador controladorAdministrador = new ControladorAdministrador(this);
-            if(controladorAdministrador.verificarUsuario() == 1){
+            if (controladorAdministrador.verificarUsuario() == 1) {
                 Intent i = new Intent(this, AdministradorActivity.class);
                 startActivity(i);
             }
         }
     }
 
-    public String getUsuario(){
+    public String getUsuario() {
         String var = usuario.getText().toString();
         return var;
     }
 
-    public String getClave(){
+    public String getClave() {
         String var = clave.getText().toString();
         return var;
     }
-
+    /*
     public void iniciarBaseDatos(){
         Empleado emp1 = new Empleado("Adrian","Cajero","adrian","leyva");
         Empleado emp2 = new Empleado("Kevin","Cajero","kevin","gamboa");
@@ -71,4 +67,5 @@ public class ValidarUsuarioActivity extends AppCompatActivity implements View.On
         EmpleadoBD baseDatos = new EmpleadoBD();
         baseDatos.setBaseDatos(listaEmpleados);
     }
+    */
 }
