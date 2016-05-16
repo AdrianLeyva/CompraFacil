@@ -36,8 +36,9 @@ public class ValidarUsuarioActivity extends AppCompatActivity implements View.On
     public void onClick(View v) {
         if (v.getId() == R.id.button_validarUsuario) {
 
-            ControladorAdministrador controladorAdministrador = new ControladorAdministrador(this);
-            if (controladorAdministrador.verificarUsuario() == 1) {
+            EmpleadoBD baseDatos = new EmpleadoBD(this);
+            baseDatos.execute();
+            if(baseDatos.getFlag() == 1){
                 Intent i = new Intent(this, AdministradorActivity.class);
                 startActivity(i);
             }
