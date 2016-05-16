@@ -2,4 +2,15 @@
     <string name="app_name">CompraFacil</string>
     <string name="activity_modo_usuario">Modo de Usuario</string>
     <string name="activity_validar_administrador">Validación usuario</string>
+    <string name="Bebidas">Bebidas</string>
+    <string name="Postres">Postres</string>
+    <string name="Dulces">Dulces</string>
+    <string name="Galletas">Galletas</string>
+    <string name="Botanas">Botanas</string>
+    <string name="Snacks">Snacks</string>
+    <string name="Bienvenido">Bienvenido a Buy Yourself</string>
+    <string name="Compra">Mi compra</string>
+    <string name="Producto">Producto</string>
+    <string name="Cantidad">Cantidad</string>
+    <string name="Total">Total</string>
 </resources>

@@ -40,3 +40,6 @@ dependencies {
 repositories {
     maven { url 'libs/mysql-connector-java-5.1.39-bin.jar' }
 }
+dependencies {
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
+}
