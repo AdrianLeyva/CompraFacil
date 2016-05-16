@@ -24,8 +24,7 @@ public class ControladorAdministrador {
 
         String vistaUsuario = vista.getUsuario();
         String vistaClave = vista.getClave();
-        return 1;
-/*
+
         ResultSet rs = baseDatos.getBaseDatos();
 
         try {
@@ -44,7 +43,6 @@ public class ControladorAdministrador {
         Toast toast = Toast.makeText(vista,"Validación incorrecta",Toast.LENGTH_SHORT);
         toast.show();
         return 0;
-        */
     }
 
 
