@@ -85,7 +85,7 @@ public class EmpleadoBD extends AsyncTask<Void,Void,Void>{
         try {
             while (rs.next()) {
                 if (vistaUsuario == rs.getString("Usuario") && vistaClave == rs.getString("Clave")) {
-                    int flag = 1;
+                    flag = 1;
                     Toast toast = Toast.makeText(vista,"Validación correcta",Toast.LENGTH_SHORT);
                     toast.show();
                     break;
