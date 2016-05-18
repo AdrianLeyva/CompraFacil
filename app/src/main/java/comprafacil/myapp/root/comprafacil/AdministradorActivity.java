@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import android.content.Intent;
 
 public class AdministradorActivity extends AppCompatActivity {
 
@@ -16,5 +17,8 @@ public class AdministradorActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_administrador);
+    }
+    public void cerrarSesion(){
+        finish();
     }
 }

@@ -15,4 +15,9 @@
     <string name="Total">Total</string>
     <string name="Confirmar">Confirmar Compra</string>
     <string name="Cancelar">Cancelar Compra</string>
+    <string name="button_Gestionar_Empleados">Gestionar empleados</string>
+    <string name="button_Consultar_Inventario">Consultar inventario</string>
+    <string name="button_Modificar_Inventario">Modificar inventario</string>
+    <string name="button_Cerrar_Sesion">Cerrar sesión</string>
+
 </resources>

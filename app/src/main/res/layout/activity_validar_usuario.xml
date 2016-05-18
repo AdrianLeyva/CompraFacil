@@ -54,7 +54,8 @@
                 android:layout_centerHorizontal="true"
                 android:textSize="50sp"
                 android:layout_marginBottom="100dp"
-                android:alpha=".8"/>
+                android:alpha=".8"
+                android:onClick="onClick" />
         </RelativeLayout>
     </FrameLayout>
 </RelativeLayout>

@@ -21,7 +21,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_7
     }
     dexOptions {
-        incremental true
+        incremental false
     }
 }
 dependencies {

@@ -2,9 +2,9 @@ package controller;
 
 
 import android.widget.Toast;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.ArrayList;
 import comprafacil.myapp.root.comprafacil.ValidarUsuarioActivity;
+import model.Empleado;
 import persistencia.EmpleadoBD;
 
 /**
@@ -13,11 +13,11 @@ import persistencia.EmpleadoBD;
 public class ControladorAdministrador {
     /*Atributos*/
     private ValidarUsuarioActivity vista;
-    private EmpleadoBD baseDatos;
+    private ArrayList<Empleado> listaEmpleados;
 
-    public ControladorAdministrador(ValidarUsuarioActivity vista) {
-        this.baseDatos = new EmpleadoBD(vista);
+    public ControladorAdministrador(ValidarUsuarioActivity vista, ArrayList<Empleado> listaEmpleados) {
         this.vista = vista;
+        this.listaEmpleados = listaEmpleados;
     }
 
     public int verificarUsuario() {
@@ -25,26 +25,24 @@ public class ControladorAdministrador {
         String vistaUsuario = vista.getUsuario();
         String vistaClave = vista.getClave();
 
-        ResultSet rs = baseDatos.getBaseDatos();
-
-        try {
-            while (rs.next()) {
-                if (vistaUsuario == rs.getString(3) && vistaClave == rs.getString(4)) {
-                    int bandera = 1;
+        int i = 0;
+        if(listaEmpleados.size() == 0){
+            Toast toast = Toast.makeText(vista,"La lista está vacía",Toast.LENGTH_SHORT);
+            toast.show();
+        }
+        else{
+            for(i=0;i<listaEmpleados.size();i++) {
+                if (listaEmpleados.get(i).getUsuario() == vistaUsuario && listaEmpleados.get(i).getClave() == vistaClave) {
                     Toast toast = Toast.makeText(vista,"Validación correcta",Toast.LENGTH_SHORT);
                     toast.show();
-                    return bandera;
+                    return 1;
                 }
             }
-        } catch (SQLException e) {
-            Toast toast = Toast.makeText(vista,"Ha habido un error para enlazar la base de datos",Toast.LENGTH_SHORT);
-            toast.show();
         }
         Toast toast = Toast.makeText(vista,"Validación incorrecta",Toast.LENGTH_SHORT);
         toast.show();
         return 0;
     }
-
 
 
 
