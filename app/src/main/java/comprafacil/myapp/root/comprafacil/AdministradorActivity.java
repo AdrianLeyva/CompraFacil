@@ -34,6 +34,7 @@ public class AdministradorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_administrador);
 
         listaProductos = getPedidos();
+        this.getPedidos();
 
         AdaptadorSeries adaptador = new AdaptadorSeries(this);
         ListView listViewPedidos = (ListView) findViewById(R.id.listView_Pedidos);
@@ -53,15 +54,14 @@ public class AdministradorActivity extends AppCompatActivity {
     }
 
     public ArrayList<Producto> getPedidos(){
-        listaProductos = new ArrayList<>();
+        ArrayList<Producto> lista = new ArrayList<>();
         Producto pedido1 = new Producto("bebidas","coca cola,",2);
         Producto pedido2 = new Producto("botanas","doritos",1);
         Producto pedido3 = new Producto("Dulces","Rockaleta",4);
-        listaProductos.add(pedido1);
-        listaProductos.add(pedido2);
-        listaProductos.add(pedido3);
-
-        return listaProductos;
+        lista.add(pedido1);
+        lista.add(pedido2);
+        lista.add(pedido3);
+        return lista;
     }
 
     class AdaptadorSeries extends ArrayAdapter<Producto>{
@@ -76,9 +76,9 @@ public class AdministradorActivity extends AppCompatActivity {
             LayoutInflater inflater = appCompatActivity.getLayoutInflater();
             View item = inflater.inflate(R.layout.list_item_pedidos, null);
 
-            TextView textViewNombreProducto = (TextView) findViewById(R.id.textView_NombreProducto);
-            TextView textViewCategoriaProducto = (TextView) findViewById(R.id.textView_CategoriaProducto);
-            TextView textViewCantidadProductos = (TextView) findViewById(R.id.textView_CantidadProductos);
+            TextView textViewNombreProducto = (TextView) item.findViewById(R.id.textView_NombreProducto);
+            TextView textViewCategoriaProducto = (TextView) item.findViewById(R.id.textView_CategoriaProducto);
+            TextView textViewCantidadProductos = (TextView) item.findViewById(R.id.textView_CantidadProductos);
             Button buttonConfirmar = (Button) findViewById(R.id.button_Confirmar);
 
             textViewNombreProducto.setText(listaProductos.get(position).getNombre());
