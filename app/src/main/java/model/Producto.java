@@ -9,12 +9,32 @@ public class Producto {
     private String categoria;
     private String nombre;
     private float precio;
+    private int cantidad;
+
+    public Producto(String categoria, String nombre, float precio, int cantidad) {
+        this.categoria = categoria;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.cantidad = cantidad;
+    }
+
+    public Producto(String categoria, String nombre, int cantidad) {
+        this.categoria = categoria;
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+    }
 
     public Producto(String categoria, String nombre, float precio) {
         this.categoria = categoria;
         this.nombre = nombre;
         this.precio = precio;
     }
+
+    public Producto(String categoria, String nombre) {
+        this.categoria = categoria;
+        this.nombre = nombre;
+    }
+
 
     public String getCategoria() {
         return categoria;
@@ -40,5 +60,11 @@ public class Producto {
         this.precio = precio;
     }
 
+    public int getCantidad() {
+        return cantidad;
+    }
 
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
 }
