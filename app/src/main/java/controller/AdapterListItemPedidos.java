@@ -1,11 +1,16 @@
 package controller;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import java.util.ArrayList;
+import android.view.LayoutInflater;
+import android.widget.Button;
+import android.widget.TextView;
 
+import comprafacil.myapp.root.comprafacil.R;
 import model.ListItemPedidos;
 import model.Producto;
 
@@ -38,8 +43,27 @@ public class AdapterListItemPedidos extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ListItemPedidos listItemPedidos = new ListItemPedidos(activity, listaProductos.get(position));
-        return listItemPedidos;
+    public View getView(int position, View contentView, ViewGroup parent) {
+
+        View vi = contentView;
+
+        if(contentView == null) {
+            LayoutInflater inflater = (LayoutInflater) activity
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            vi = inflater.inflate(R.layout.list_item_pedidos, null);
+        }
+
+        Producto producto = listaProductos.get(position);
+
+        TextView textViewNombreProducto = (TextView) vi.findViewById(R.id.textView_NombreProducto);
+        TextView textViewCategoriaProducto = (TextView) vi.findViewById(R.id.textView_CategoriaProducto);
+        TextView textViewCantidadProductos = (TextView) vi.findViewById(R.id.textView_CantidadProductos);
+        Button buttonConfirmar = (Button) vi.findViewById(R.id.button_Confirmar);
+
+        textViewNombreProducto.setText(producto.getNombre());
+        textViewCategoriaProducto.setText(producto.getCategoria());
+        textViewCantidadProductos.setText(producto.getCantidad());
+
+        return vi;
     }
 }
