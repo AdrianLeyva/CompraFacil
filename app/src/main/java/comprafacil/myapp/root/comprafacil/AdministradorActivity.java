@@ -53,7 +53,7 @@ public class AdministradorActivity extends AppCompatActivity {
     }
 
     public ArrayList<Producto> getPedidos(){
-        ArrayList<Producto> listaProductos = new ArrayList<>();
+        listaProductos = new ArrayList<>();
         Producto pedido1 = new Producto("bebidas","coca cola,",2);
         Producto pedido2 = new Producto("botanas","doritos",1);
         Producto pedido3 = new Producto("Dulces","Rockaleta",4);
