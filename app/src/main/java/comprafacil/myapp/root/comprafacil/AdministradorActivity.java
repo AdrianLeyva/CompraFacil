@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import comprafacil.myapp.root.comprafacil.Series;
 import java.util.ArrayList;
 
