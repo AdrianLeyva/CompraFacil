@@ -32,6 +32,7 @@ public class AdministradorActivity extends AppCompatActivity {
         AdapterListItemPedidos adaptador = new AdapterListItemPedidos(this, listaProductos);
         listViewPedidos.setAdapter(adaptador);
 
+
         /*
         //Inicializa el listView con los pedidos actuales
         list = (ListView) findViewById(R.id.listView_Pedidos);
