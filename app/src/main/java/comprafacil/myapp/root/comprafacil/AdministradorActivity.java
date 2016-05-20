@@ -12,12 +12,15 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 
 import controller.AdapterListItemPedidos;
 import model.Producto;
 
 public class AdministradorActivity extends AppCompatActivity {
+    private ArrayList<Producto> listaProductos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,10 +30,18 @@ public class AdministradorActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_administrador);
 
-        ListView listViewPedidos = (ListView) findViewById(R.id.listView_Pedidos);
-        ArrayList<Producto> listaProductos = getPedidos();
-        AdapterListItemPedidos adaptador = new AdapterListItemPedidos(this, listaProductos);
-        listViewPedidos.setAdapter(adaptador);
+        try{
+            ListView listViewPedidos = (ListView) findViewById(R.id.listView_Pedidos);
+            listaProductos = getPedidos();
+            AdapterListItemPedidos adaptador = new AdapterListItemPedidos(this, listaProductos);
+            listViewPedidos.setAdapter(adaptador);
+        }
+        catch (Exception e){
+            if(listaProductos.size() == 0){
+                Toast toast = Toast.makeText(this,"La lista está vacía",Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        }
 
 
         /*

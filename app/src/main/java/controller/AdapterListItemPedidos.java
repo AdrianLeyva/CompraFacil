@@ -26,11 +26,6 @@ public class AdapterListItemPedidos extends BaseAdapter {
     public AdapterListItemPedidos(Activity activity, ArrayList<Producto> listaProductos){
         this.activity = activity;
         this.listaProductos = listaProductos;
-
-        if(listaProductos.size() == 0){
-            Toast toast = Toast.makeText(activity,"La lista está vacia",Toast.LENGTH_SHORT);
-            toast.show();
-        }
     }
 
     @Override
