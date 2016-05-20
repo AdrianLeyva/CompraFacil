@@ -21,18 +21,22 @@ import model.Producto;
 
 public class AdministradorActivity extends AppCompatActivity {
     private ArrayList<Producto> listaProductos;
+
+    public AdministradorActivity(){
+        listaProductos = getPedidos();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        //Hacer la actividad FULLSCREEN
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_administrador);
 
         try{
+            super.onCreate(savedInstanceState);
+
+            //Hacer la actividad FULLSCREEN
+            this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            setContentView(R.layout.activity_administrador);
+
             ListView listViewPedidos = (ListView) findViewById(R.id.listView_Pedidos);
-            listaProductos = getPedidos();
             AdapterListItemPedidos adaptador = new AdapterListItemPedidos(this, listaProductos);
             listViewPedidos.setAdapter(adaptador);
         }
