@@ -9,25 +9,14 @@ public class Administrador extends Empleado {
     private String usuario;
     private String clave;
     private Empleado empleado;
-    private Inventario inventario;
 
     public Administrador(String nombre, String puesto, String usuario, String clave){
         super(nombre,puesto,usuario,clave);
     }
 
-    public Administrador(String nombre, String puesto, String usuario, String clave, Empleado empleado, Inventario inventario){
+    public Administrador(String nombre, String puesto, String usuario, String clave, Empleado empleado){
        super(nombre,puesto,usuario,clave);
         this.empleado = empleado;
-        this.inventario = inventario;
-    }
-
-
-    public Inventario getInventario() {
-        return inventario;
-    }
-
-    public void setInventario(Inventario inventario) {
-        this.inventario = inventario;
     }
 
 

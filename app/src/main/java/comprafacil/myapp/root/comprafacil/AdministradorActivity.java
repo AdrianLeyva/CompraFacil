@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import comprafacil.myapp.root.comprafacil.Series;
 import java.util.ArrayList;
 
 import controller.AdapterListItemPedidos;
@@ -21,8 +21,12 @@ import model.Producto;
 
 public class AdministradorActivity extends AppCompatActivity {
     private ArrayList<Producto> listaProductos;
+    private ArrayList<Series> listaSeries;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
 
         //Hacer la actividad FULLSCREEN
@@ -30,19 +34,20 @@ public class AdministradorActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_administrador);
 
-        try{
-            ListView listViewPedidos = (ListView) findViewById(R.id.listView_Pedidos);
-            listaProductos = getPedidos();
-            AdapterListItemPedidos adaptador = new AdapterListItemPedidos(this, listaProductos);
-            listViewPedidos.setAdapter(adaptador);
-        }
-        catch (Exception e){
-            if(listaProductos.size() == 0){
-                Toast toast = Toast.makeText(this,"La lista está vacía",Toast.LENGTH_SHORT);
-                toast.show();
-            }
-        }
 
+        listaSeries = new ArrayList<Series>();
+        listaSeries = getPedidos();
+
+
+        AdaptadorSeries adaptador = new AdaptadorSeries(this);
+        ListView listView1 = (ListView) findViewById(R.id.listView_Pedidos);
+        listView1.setAdapter(adaptador);
+
+     /*   ListView listViewPedidos = (ListView) findViewById(R.id.listView_Pedidos);
+        listaProductos = getPedidos();
+        AdapterListItemPedidos adaptador = new AdapterListItemPedidos(this, listaProductos);
+        listViewPedidos.setAdapter(adaptador);
+*/
 
         /*
         //Inicializa el listView con los pedidos actuales
@@ -57,15 +62,13 @@ public class AdministradorActivity extends AppCompatActivity {
         finish();
     }
 
-    public ArrayList<Producto> getPedidos(){
-        ArrayList<Producto> lista = new ArrayList<Producto>();
-        Producto pedido1 = new Producto("bebidas","coca cola,",2);
-        Producto pedido2 = new Producto("botanas","doritos",1);
-        Producto pedido3 = new Producto("Dulces","Rockaleta",4);
-        lista.add(pedido1);
-        lista.add(pedido2);
-        lista.add(pedido3);
-        return lista;
+    public ArrayList<Series> getPedidos(){
+        listaSeries.add(new Series("Game of Thrones", "La más chida", "drama" ));
+        listaSeries.add(new Series("Vikings", "chida", "acción"));
+        listaSeries.add(new Series("Walking Dead", "Muy chida", "Suspenso"));
+        listaSeries.add(new Series("Suits", "Muy buena", "Abogados"));
+        listaSeries.add(new Series("Breaking Bad", "muy lenta", "Drama"));
+        return listaSeries;
     }
 /*
     class AdaptadorSeries extends ArrayAdapter<Producto>{
@@ -96,4 +99,30 @@ public class AdministradorActivity extends AppCompatActivity {
 
 
 */
+
+    class AdaptadorSeries extends ArrayAdapter<Series> {
+
+        AppCompatActivity appCompatActivity;
+
+        AdaptadorSeries(AppCompatActivity context) {
+            super(context, R.layout.elementos_series, listaSeries);
+            appCompatActivity = context;
+        }
+
+        public View getView(int position, View convertView, ViewGroup parent) {
+            LayoutInflater inflater = appCompatActivity.getLayoutInflater();
+            View item = inflater.inflate(R.layout.elementos_series, null);
+
+            TextView textView1 = (TextView) item.findViewById(R.id.tvnombre);
+            textView1.setText(listaSeries.get(position).getNombre());
+
+            TextView textView2 = (TextView) item.findViewById(R.id.tvgenero);
+            textView2.setText(listaSeries.get(position).getGenero());
+
+            TextView textView3 = (TextView) item.findViewById(R.id.tvpuesto);
+            textView3.setText(listaSeries.get(position).getPuesto());
+
+            return (item);
+        }
+    }
 }

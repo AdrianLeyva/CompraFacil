@@ -34,6 +34,7 @@ public class ValidarUsuarioActivity extends AppCompatActivity {
             Intent i = new Intent(this, AdministradorActivity.class);
             startActivity(i);
         }
+
     }
 
     public String getUsuario() {
