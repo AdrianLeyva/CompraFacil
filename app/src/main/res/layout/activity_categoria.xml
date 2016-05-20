@@ -36,7 +36,7 @@
             android:layout_marginTop="88dp"
             android:id="@+id/relativeLayout"
             android:clickable="false"
-            android:background="#4bd229">
+            android:background="#e1613a">
 
             <TextView
                 android:layout_width="wrap_content"
