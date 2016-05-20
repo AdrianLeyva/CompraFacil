@@ -23,5 +23,6 @@
     <string name="CandidadDis">Cantidad Disponible</string>
     <string name="Precio">Precio</string>
     <string name="Categoria">Categoria</string>
+    <string name="Comprar">Comprar</string>
 
 </resources>
