@@ -19,5 +19,9 @@
     <string name="button_Consultar_Inventario">Consultar inventario</string>
     <string name="button_Modificar_Inventario">Modificar inventario</string>
     <string name="button_Cerrar_Sesion">Cerrar sesión</string>
+    <string name="CantidadDis">CandidadDis</string>
+    <string name="CandidadDis">Cantidad Disponible</string>
+    <string name="Precio">Precio</string>
+    <string name="Categoria">Categoria</string>
 
 </resources>
