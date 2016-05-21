@@ -2,8 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="comprafacil.myapp.root.comprafacil">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,13 +12,10 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ModoUsuarioActivity"
-            android:label="@string/activity_modo_usuario"
-            />
+            android:label="@string/activity_modo_usuario" />
         <activity
             android:name=".ValidarUsuarioActivity"
-            android:label="@string/activity_validar_administrador"
-            />
-
+            android:label="@string/activity_validar_administrador" />
         <activity android:name=".AdministradorActivity" />
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
@@ -28,11 +24,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <!--
+             ATTENTION: This was auto-generated to add Google Play services to your project for
+             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".ViewList_Producto"></activity>
     </application>
 
 </manifest>
