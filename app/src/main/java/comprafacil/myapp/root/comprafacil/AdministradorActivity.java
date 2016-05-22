@@ -13,8 +13,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import comprafacil.myapp.root.comprafacil.Series;
 import java.util.ArrayList;
-
-import controller.AdapterListItemPedidos;
 import model.Producto;
 
 public class AdministradorActivity extends AppCompatActivity {
