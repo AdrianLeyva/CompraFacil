@@ -18,7 +18,7 @@ public class Producto {
         this.cantidad = cantidad;
     }
 
-    public Producto(String categoria, String nombre, int cantidad) {
+/*    public Producto(String categoria, String nombre, int cantidad) {
         this.categoria = categoria;
         this.nombre = nombre;
         this.cantidad = cantidad;
@@ -34,7 +34,7 @@ public class Producto {
         this.categoria = categoria;
         this.nombre = nombre;
     }
-
+*/
 
     public String getCategoria() {
         return categoria;

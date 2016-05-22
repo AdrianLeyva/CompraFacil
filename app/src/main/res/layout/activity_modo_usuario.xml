@@ -17,7 +17,8 @@
         android:textSize="60sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="167dp" />
+        android:layout_marginTop="167dp"
+        android:onClick="abrirModoClientes" />
 
     <Button
         android:layout_width="wrap_content"

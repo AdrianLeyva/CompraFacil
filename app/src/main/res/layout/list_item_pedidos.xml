@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView_NumeroPedido"
         android:textSize="40sp"
-        android:textColor="#ff0000"/>
+        android:textColor="#ff0000" />
 
 
     <TextView

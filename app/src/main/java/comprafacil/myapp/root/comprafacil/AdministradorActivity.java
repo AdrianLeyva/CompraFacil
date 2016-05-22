@@ -1,5 +1,6 @@
 package comprafacil.myapp.root.comprafacil;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -56,6 +57,15 @@ public class AdministradorActivity extends AppCompatActivity {
     }
     public void cerrarSesion(View view){
         finish();
+    }
+
+
+    public void abrirConsultarInventario(View view){
+            Intent i = new Intent(this, ConsultaInventarioActivity.class);
+            startActivity(i);
+
+
+
     }
 
     public ArrayList<Series> getPedidos(){

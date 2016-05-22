@@ -61,7 +61,8 @@
                     android:alpha="0.8"
                     android:layout_marginBottom="30dp"
                     android:id="@+id/button_Consultar_Inventario"
-                    android:layout_below="@+id/button_Gestionar_Empleados" />
+                    android:layout_below="@+id/button_Gestionar_Empleados"
+                    android:onClick="abrirConsultarInventario" />
 
 
                 <Button

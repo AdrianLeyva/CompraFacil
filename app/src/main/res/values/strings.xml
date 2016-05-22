@@ -25,4 +25,8 @@
     <string name="Categoria">Categoria</string>
     <string name="Comprar">Comprar</string>
 
+    <string name="columa_nombre">NOMBRE</string>
+    <string name="columa_categoria">CATEGORIA</string>
+    <string name="columa_cantidad">CANTIDAD</string>
+    <string name="columa_precio">PRECIO</string>
 </resources>
