@@ -1,8 +1,7 @@
 package comprafacil.myapp.root.comprafacil;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
-
+import model.Producto;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -10,16 +9,13 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import comprafacil.myapp.root.comprafacil.Series;
 import java.util.ArrayList;
-import model.Producto;
 
 public class AdministradorActivity extends AppCompatActivity {
     private ArrayList<Producto> listaProductos;
-    private ArrayList<Series> listaSeries;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -32,8 +28,8 @@ public class AdministradorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_administrador);
 
 
-        listaSeries = new ArrayList<Series>();
-        listaSeries = getPedidos();
+        listaProductos = new ArrayList<Producto>();
+        listaProductos = getPedidos();
 
 
         AdaptadorSeries adaptador = new AdaptadorSeries(this);
@@ -59,75 +55,58 @@ public class AdministradorActivity extends AppCompatActivity {
         finish();
     }
 
-
-    public void abrirConsultarInventario(View view){
-            Intent i = new Intent(this, ConsultaInventarioActivity.class);
-            startActivity(i);
-
-
-
-    }
-
-    public ArrayList<Series> getPedidos(){
-        listaSeries.add(new Series("Game of Thrones", "La más chida", "drama" ));
-        listaSeries.add(new Series("Vikings", "chida", "acción"));
-        listaSeries.add(new Series("Walking Dead", "Muy chida", "Suspenso"));
-        listaSeries.add(new Series("Suits", "Muy buena", "Abogados"));
-        listaSeries.add(new Series("Breaking Bad", "muy lenta", "Drama"));
-        return listaSeries;
-    }
-/*
-    class AdaptadorSeries extends ArrayAdapter<Producto>{
-
-        AppCompatActivity appCompatActivity;
-        public AdaptadorSeries(AppCompatActivity context) {
-            super(context, R.layout.list_item_pedidos, listaProductos);
-            appCompatActivity = context;
-        }
-
-        public View getView(int position,View convertView,ViewGroup parent){
-            LayoutInflater inflater = appCompatActivity.getLayoutInflater();
-            View item = inflater.inflate(R.layout.list_item_pedidos, null);
-
-            TextView textViewNombreProducto = (TextView) item.findViewById(R.id.textView_NombreProducto);
-            TextView textViewCategoriaProducto = (TextView) item.findViewById(R.id.textView_CategoriaProducto);
-            TextView textViewCantidadProductos = (TextView) item.findViewById(R.id.textView_CantidadProductos);
-            Button buttonConfirmar = (Button) findViewById(R.id.button_Confirmar);
-
-            textViewNombreProducto.setText(listaProductos.get(position).getNombre());
-            textViewCategoriaProducto.setText(listaProductos.get(position).getCategoria());
-            textViewCantidadProductos.setText(listaProductos.get(position).getCantidad());
-
-            return (item);
-        }
+    public ArrayList<Producto> getPedidos(){
+        listaProductos.add(new Producto("Bebidas","Coca cola","4"));
+        listaProductos.add(new Producto("Bebida", "Pepsi","2"));
+        listaProductos.add(new Producto("Dulces", "Rockaleta","4"));
+        listaProductos.add(new Producto("Dulces", "TupsiPop","1"));
+        listaProductos.add(new Producto("Sabritas", "Doritos","2"));
+        return listaProductos;
     }
 
 
 
-*/
-
-    class AdaptadorSeries extends ArrayAdapter<Series> {
+    class AdaptadorSeries extends ArrayAdapter<Producto> {
 
         AppCompatActivity appCompatActivity;
 
         AdaptadorSeries(AppCompatActivity context) {
-            super(context, R.layout.elementos_series, listaSeries);
+            super(context, R.layout.list_item_pedidos, listaProductos);
             appCompatActivity = context;
         }
 
         public View getView(int position, View convertView, ViewGroup parent) {
+
             LayoutInflater inflater = appCompatActivity.getLayoutInflater();
-            View item = inflater.inflate(R.layout.elementos_series, null);
+            View item = inflater.inflate(R.layout.list_item_pedidos, null);
 
-            TextView textView1 = (TextView) item.findViewById(R.id.tvnombre);
-            textView1.setText(listaSeries.get(position).getNombre());
+            int lastPosition = listaProductos.size() - 1;
+            if(position == 0){
 
-            TextView textView2 = (TextView) item.findViewById(R.id.tvgenero);
-            textView2.setText(listaSeries.get(position).getGenero());
+                TextView categoria = (TextView) item.findViewById(R.id.textView_CategoriaProducto);
+                categoria.setVisibility(categoria.VISIBLE);
+                categoria.setText("PEDIDO NUMERO #0000");
+            }
+            else if (position == lastPosition) {
 
-            TextView textView3 = (TextView) item.findViewById(R.id.tvpuesto);
-            textView3.setText(listaSeries.get(position).getPuesto());
+                Button buttonConfirmar = (Button) item.findViewById(R.id.button_ConfirmarPedido);
+                buttonConfirmar.setVisibility(buttonConfirmar.VISIBLE);
 
+            }
+            else if(position>0 && position<lastPosition){
+
+                TextView categoria = (TextView) item.findViewById(R.id.textView_CategoriaProducto);
+                categoria.setVisibility(categoria.VISIBLE);
+                categoria.setText(listaProductos.get(position).getCategoria());
+
+                TextView nombre = (TextView) item.findViewById(R.id.textView_NombreProducto);
+                nombre.setVisibility(nombre.VISIBLE);
+                nombre.setText(listaProductos.get(position).getNombre());
+
+                TextView cantidad = (TextView) item.findViewById(R.id.textView_CantidadProductos);
+                cantidad.setVisibility(cantidad.VISIBLE);
+                cantidad.setText(listaProductos.get(position).getCantidad());
+            }
             return (item);
         }
     }
