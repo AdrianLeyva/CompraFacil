@@ -16,7 +16,6 @@ import java.util.ArrayList;
 
 public class AdministradorActivity extends AppCompatActivity {
     private ArrayList<Producto> listaProductos;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -64,35 +63,8 @@ public class AdministradorActivity extends AppCompatActivity {
         listaProductos.add(new Producto("Sabritas", "Doritos","2"));
         return listaProductos;
     }
-/*
-    class AdaptadorSeries extends ArrayAdapter<Producto>{
-
-        AppCompatActivity appCompatActivity;
-        public AdaptadorSeries(AppCompatActivity context) {
-            super(context, R.layout.list_item_pedidos, listaProductos);
-            appCompatActivity = context;
-        }
-
-        public View getView(int position,View convertView,ViewGroup parent){
-            LayoutInflater inflater = appCompatActivity.getLayoutInflater();
-            View item = inflater.inflate(R.layout.list_item_pedidos, null);
-
-            TextView textViewNombreProducto = (TextView) item.findViewById(R.id.textView_NombreProducto);
-            TextView textViewCategoriaProducto = (TextView) item.findViewById(R.id.textView_CategoriaProducto);
-            TextView textViewCantidadProductos = (TextView) item.findViewById(R.id.textView_CantidadProductos);
-            Button buttonConfirmar = (Button) findViewById(R.id.button_Confirmar);
-
-            textViewNombreProducto.setText(listaProductos.get(position).getNombre());
-            textViewCategoriaProducto.setText(listaProductos.get(position).getCategoria());
-            textViewCantidadProductos.setText(listaProductos.get(position).getCantidad());
-
-            return (item);
-        }
-    }
 
 
-
-*/
 
     class AdaptadorSeries extends ArrayAdapter<Producto> {
 
@@ -104,20 +76,25 @@ public class AdministradorActivity extends AppCompatActivity {
         }
 
         public View getView(int position, View convertView, ViewGroup parent) {
+
             LayoutInflater inflater = appCompatActivity.getLayoutInflater();
             View item = inflater.inflate(R.layout.list_item_pedidos, null);
 
             int lastPosition = listaProductos.size() - 1;
             if(position == 0){
+
                 TextView categoria = (TextView) item.findViewById(R.id.textView_CategoriaProducto);
                 categoria.setVisibility(categoria.VISIBLE);
                 categoria.setText("PEDIDO NUMERO #0000");
             }
             else if (position == lastPosition) {
-                Button buttonConfirmar = (Button) item.findViewById(R.id.button_Confirmar);
+
+                Button buttonConfirmar = (Button) item.findViewById(R.id.button_ConfirmarPedido);
                 buttonConfirmar.setVisibility(buttonConfirmar.VISIBLE);
+
             }
-            else {
+            else if(position>0 && position<lastPosition){
+
                 TextView categoria = (TextView) item.findViewById(R.id.textView_CategoriaProducto);
                 categoria.setVisibility(categoria.VISIBLE);
                 categoria.setText(listaProductos.get(position).getCategoria());
@@ -125,8 +102,11 @@ public class AdministradorActivity extends AppCompatActivity {
                 TextView nombre = (TextView) item.findViewById(R.id.textView_NombreProducto);
                 nombre.setVisibility(nombre.VISIBLE);
                 nombre.setText(listaProductos.get(position).getNombre());
-            }
 
+                TextView cantidad = (TextView) item.findViewById(R.id.textView_CantidadProductos);
+                cantidad.setVisibility(cantidad.VISIBLE);
+                cantidad.setText(listaProductos.get(position).getCantidad());
+            }
             return (item);
         }
     }
