@@ -9,10 +9,8 @@ import java.util.ArrayList;
 import android.view.LayoutInflater;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import comprafacil.myapp.root.comprafacil.R;
-import model.ListItemPedidos;
 import model.Producto;
 
 /**

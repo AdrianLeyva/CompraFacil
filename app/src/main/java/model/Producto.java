@@ -8,28 +8,28 @@ public class Producto {
     /*Atributos*/
     private String categoria;
     private String nombre;
-    private float precio;
-    private int cantidad;
+    private String precio;
+    private String cantidad;
 
-    public Producto(String categoria, String nombre, float precio, int cantidad) {
+    public Producto(String categoria, String nombre, String precio, String cantidad) {
         this.categoria = categoria;
         this.nombre = nombre;
         this.precio = precio;
         this.cantidad = cantidad;
     }
 
-    public Producto(String categoria, String nombre, int cantidad) {
+    public Producto(String categoria, String nombre, String cantidad) {
         this.categoria = categoria;
         this.nombre = nombre;
         this.cantidad = cantidad;
     }
-
-    public Producto(String categoria, String nombre, float precio) {
+/*
+    public Producto(String categoria, String nombre, String precio) {
         this.categoria = categoria;
         this.nombre = nombre;
         this.precio = precio;
     }
-
+*/
     public Producto(String categoria, String nombre) {
         this.categoria = categoria;
         this.nombre = nombre;
@@ -52,19 +52,19 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public float getPrecio() {
+    public String getPrecio() {
         return precio;
     }
 
-    public void setPrecio(float precio) {
+    public void setPrecio(String precio) {
         this.precio = precio;
     }
 
-    public int getCantidad() {
+    public String   getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
+    public void setCantidad(String cantidad) {
         this.cantidad = cantidad;
     }
 }

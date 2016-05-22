@@ -1,5 +1,5 @@
 package comprafacil.myapp.root.comprafacil;
-
+/*
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -19,7 +19,7 @@ public class ListViewSeries_activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_view_series_activity);
+        setContentView(R.layout.activity_view_list__producto);
 
         listaSeries = new ArrayList<Series>();
         listaSeries.add(new Series("Game of Thrones", "La más chida", "drama" ));
@@ -60,3 +60,4 @@ public class ListViewSeries_activity extends AppCompatActivity {
         }
     }
 }
+*/
