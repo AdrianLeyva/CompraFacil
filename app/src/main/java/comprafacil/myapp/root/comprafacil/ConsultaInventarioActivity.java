@@ -1,8 +1,6 @@
 package comprafacil.myapp.root.comprafacil;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -14,7 +12,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import java.util.ArrayList;
 import model.Producto;
-
 import controller.ControladorProducto;
 
 public class ConsultaInventarioActivity extends AppCompatActivity {
@@ -34,18 +31,8 @@ public class ConsultaInventarioActivity extends AppCompatActivity {
         controlador = new ControladorProducto();
         listaProductos = new ArrayList<Producto>();
         listaProductos = controlador.getProductosPersistencia();
-/*
-        listaProductos.add(new Producto("Bebidas", "Pepsi", "10", "23"));
-        listaProductos.add(new Producto("Bebidas", "Coca", "10", "23"));
-        listaProductos.add(new Producto("Bebidas", "Sprite", "10", "23"));
-        listaProductos.add(new Producto("Bebidas", "Manzana", "10", "23"));
-        listaProductos.add(new Producto("Bebidas", "Te", "10", "23"));
-        listaProductos.add(new Producto("Bebidas", "Del valle", "10", "23"));
-        listaProductos.add(new Producto("Bebidas", "Fanta", "10", "23"));
-        listaProductos.add(new Producto("Bebidas", "Fresca", "10", "23"));
 
-*/
-
+        //Realiza el proceso del adaptador, para mandarle la vista de los elementos
         AdaptadorInventario adaptador = new AdaptadorInventario(this);
         ListView lv_Inventario = (ListView) findViewById(R.id.lv_elementos_inventario);
         lv_Inventario.setAdapter(adaptador);
