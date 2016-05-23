@@ -29,4 +29,7 @@
     <string name="columa_categoria">CATEGORIA</string>
     <string name="columa_cantidad">CANTIDAD</string>
     <string name="columa_precio">PRECIO</string>
+    <string name="Productos">Productos</string>
+    <string name="Precios">Precio</string>
+    <string name="CantDis">Cantidad Disponible</string>
 </resources>
