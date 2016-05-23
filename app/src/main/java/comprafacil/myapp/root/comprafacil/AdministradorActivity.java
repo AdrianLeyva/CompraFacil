@@ -1,5 +1,6 @@
 package comprafacil.myapp.root.comprafacil;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import model.Producto;
 import android.os.Bundle;
@@ -56,12 +57,18 @@ public class AdministradorActivity extends AppCompatActivity {
     }
 
     public ArrayList<Producto> getPedidos(){
-        listaProductos.add(new Producto("Bebidas","Coca cola","4"));
-        listaProductos.add(new Producto("Bebida", "Pepsi","2"));
-        listaProductos.add(new Producto("Dulces", "Rockaleta","4"));
-        listaProductos.add(new Producto("Dulces", "TupsiPop","1"));
-        listaProductos.add(new Producto("Sabritas", "Doritos","2"));
+        listaProductos.add(new Producto("Bebidas","Coca cola",4));
+        listaProductos.add(new Producto("Bebida", "Pepsi",2));
+        listaProductos.add(new Producto("Dulces", "Rockaleta",4));
+        listaProductos.add(new Producto("Dulces", "TupsiPop",1));
+        listaProductos.add(new Producto("Sabritas", "Doritos",2));
         return listaProductos;
+    }
+
+    public void abrirConsultarInventario(View view){
+        Intent i = new Intent(this, ConsultaInventarioActivity.class);
+        startActivity(i);
+
     }
 
 
@@ -105,7 +112,7 @@ public class AdministradorActivity extends AppCompatActivity {
 
                 TextView cantidad = (TextView) item.findViewById(R.id.textView_CantidadProductos);
                 cantidad.setVisibility(cantidad.VISIBLE);
-                cantidad.setText(listaProductos.get(position).getCantidad());
+                cantidad.setText(String.valueOf(listaProductos.get(position).getCantidad()));
             }
             return (item);
         }

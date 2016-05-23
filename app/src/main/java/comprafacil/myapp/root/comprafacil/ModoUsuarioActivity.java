@@ -26,14 +26,9 @@ public class ModoUsuarioActivity extends AppCompatActivity {
     }
 
     public void abrirModoClientes(View view){
-        try {
-            Intent i = new Intent(this, ConsultaInventarioActivity.class);
-            startActivity(i);
-        }
-        catch(Exception e) {
-            Intent i = new Intent(this, ValidarUsuarioActivity.class);
-            startActivity(i);
-        }
+        Intent i = new Intent(this, ConsultaInventarioActivity.class);
+        startActivity(i);
+
 
 
     }
