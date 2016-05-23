@@ -77,7 +77,7 @@ public class ConsultaInventarioActivity extends AppCompatActivity {
             tvcantidad_inventario.setText(String.valueOf(listaProductos.get(position).getCantidad()));
 
             TextView tvprecio_inventario = (TextView) item.findViewById(R.id.elemento_inventario_precio);
-            tvprecio_inventario.setText(String.valueOf(listaProductos.get(position).getPrecio()));
+            tvprecio_inventario.setText("$ " + String.valueOf(listaProductos.get(position).getPrecio()));
 
             return (item);
         }
