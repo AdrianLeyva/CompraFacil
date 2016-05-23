@@ -1,11 +1,11 @@
 package controller;
 
-
-import android.widget.Toast;
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import comprafacil.myapp.root.comprafacil.ValidarUsuarioActivity;
 import model.Empleado;
-import persistencia.EmpleadoBD;
+import persistencia.Conexion;
 
 /**
  * Created by root_user on 19/04/16.
@@ -13,35 +13,36 @@ import persistencia.EmpleadoBD;
 public class ControladorAdministrador {
     /*Atributos*/
     private ValidarUsuarioActivity vista;
-    private ArrayList<Empleado> listaEmpleados;
+    private Conexion conexion;
 
-    public ControladorAdministrador(ValidarUsuarioActivity vista, ArrayList<Empleado> listaEmpleados) {
+    public ControladorAdministrador(ValidarUsuarioActivity vista) {
         this.vista = vista;
-        this.listaEmpleados = listaEmpleados;
     }
 
-    public int verificarUsuario() {
+
+    public Empleado verificarUsuario() {
 
         String vistaUsuario = vista.getUsuario();
         String vistaClave = vista.getClave();
 
-        int i = 0;
-        if(listaEmpleados.size() == 0){
-            Toast toast = Toast.makeText(vista,"La lista está vacía",Toast.LENGTH_SHORT);
-            toast.show();
-        }
-        else{
-            for(i=0;i<listaEmpleados.size();i++) {
-                if (listaEmpleados.get(i).getUsuario() == vistaUsuario && listaEmpleados.get(i).getClave() == vistaClave) {
-                    Toast toast = Toast.makeText(vista,"Validación correcta",Toast.LENGTH_SHORT);
-                    toast.show();
-                    return 1;
-                }
+        conexion = new Conexion();
+        Empleado empleado = null;
+        Connection baseDatos = conexion.getConexion();
+        try {
+            PreparedStatement ps = baseDatos.prepareStatement("select * from empleados where usuario=? and clave=?");
+            ps.setString(1, vistaUsuario);
+            ps.setString(2,vistaClave);
+
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                empleado = new Empleado();
+                empleado.setUsuario(rs.getString("usuario"));
+                empleado.setClave(rs.getString("clave"));
+                return empleado;
             }
+        }catch (Exception e){
         }
-        Toast toast = Toast.makeText(vista,"Validación incorrecta",Toast.LENGTH_SHORT);
-        toast.show();
-        return 0;
+        return empleado;
     }
 
 

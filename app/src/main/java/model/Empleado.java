@@ -11,6 +11,10 @@ public class Empleado {
     private String usuario;
     private String clave;
 
+    public Empleado(){
+
+    }
+
     public Empleado(String nombre,String puesto, String usuario, String clave) {
         this.nombre = nombre;
         this.puesto = puesto;

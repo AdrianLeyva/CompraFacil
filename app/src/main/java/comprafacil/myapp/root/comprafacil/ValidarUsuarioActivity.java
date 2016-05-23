@@ -4,21 +4,17 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import java.util.ArrayList;
+import android.widget.Toast;
 
 import controller.ControladorAdministrador;
 import model.Empleado;
-import persistencia.EmpleadoBD;
 
 public class ValidarUsuarioActivity extends AppCompatActivity {
     //Atributos
     private EditText usuario;
     private EditText clave;
-    private Button botonValidar;
-    private ArrayList<Empleado> listaEmpleados = new ArrayList<>();
-
+    private Empleado empleado;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +27,20 @@ public class ValidarUsuarioActivity extends AppCompatActivity {
 
     public void onClick(View v) {
         if (v.getId() == R.id.button_validarUsuario) {
-            Intent i = new Intent(this, AdministradorActivity.class);
-            startActivity(i);
+
+            ControladorAdministrador controladorAdministrador = new ControladorAdministrador(this);
+            empleado = controladorAdministrador.verificarUsuario();
+            if(empleado == null){
+                Toast toast = Toast.makeText(this,"Validación incorrecta",Toast.LENGTH_SHORT);
+                toast.show();
+            }
+            else{
+                Toast toast = Toast.makeText(this,"Validación correcta",Toast.LENGTH_SHORT);
+                toast.show();
+                Intent i = new Intent(this, AdministradorActivity.class);
+                startActivity(i);
+            }
+
         }
 
     }
@@ -47,15 +55,5 @@ public class ValidarUsuarioActivity extends AppCompatActivity {
         return var;
     }
 
-    public void iniciarBaseDatos(){
-
-        Empleado emp1 = new Empleado("Adrian","Cajero","adrian","leyva");
-        Empleado emp2 = new Empleado("Kevin","Cajero","kevin","gamboa");
-        Empleado emp3 = new Empleado("Daniel","Cajero","daniel","baas");
-
-        listaEmpleados.add(emp1);
-        listaEmpleados.add(emp2);
-        listaEmpleados.add(emp3);
-    }
 
 }
