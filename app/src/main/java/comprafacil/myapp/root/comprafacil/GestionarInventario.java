@@ -16,6 +16,7 @@ import controller.ButtonAgregarOnClick;
 import model.Producto;
 
 public class GestionarInventario extends AppCompatActivity {
+    //variables
     private ArrayList<Producto> listaProductos;
     private AdaptadorSeries adaptador;
     private ListView listView1;
