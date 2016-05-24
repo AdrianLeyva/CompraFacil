@@ -39,7 +39,7 @@ public class GestionarInventario extends AppCompatActivity {
         return listaProductos;
     }
 
-    public void agregarNuevoProducto(View view){
+    public int agregarNuevoProducto(View view){
         EditText editTextNombre = (EditText)findViewById(R.id.editText_NombreProducto);
         EditText editTextCategoria = (EditText)findViewById(R.id.editText_CategoriaProducto);
         EditText editTextPrecio = (EditText)findViewById(R.id.editText_PrecioProducto);
@@ -50,7 +50,26 @@ public class GestionarInventario extends AppCompatActivity {
         float precio = Float.valueOf(editTextPrecio.getText().toString());
         int cantidad = Integer.valueOf(editTextCantidad.getText().toString());
 
+        for(int i=0;i<listaProductos.size();i++){
+        if(listaProductos.get(i).getNombre().compareTo(nombre) == 0  && listaProductos.get(i).getCategoria().compareTo(categoria) == 0){
+                int j = listaProductos.get(i).getCantidad();
+                listaProductos.get(i).setCantidad(j + cantidad);
+                adaptador.notifyDataSetChanged();
+                return 0;
+            }
+        }
         listaProductos.add(new Producto(categoria,nombre,precio,cantidad));
+        adaptador.notifyDataSetChanged();
+        return 0;
+    }
+
+    public void actualizarInventario(View view){
+
+    }
+
+    public void restablecerInventario(){
+        listaProductos.clear();
+        listaProductos.add(new Producto("",""));
         adaptador.notifyDataSetChanged();
     }
 
