@@ -150,7 +150,8 @@
                 android:layout_marginEnd="118dp"
                 android:layout_alignTop="@+id/button_Actualizar_Empleado"
                 android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
+                android:layout_alignParentEnd="true"
+                android:onClick="restablecerEmpleados" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -240,7 +241,8 @@
                 android:alpha=".8"
                 android:textSize="20sp"
                 android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:onClick="agregarNuevoEmpleado" />
         </RelativeLayout>
     </FrameLayout>
 </RelativeLayout>
