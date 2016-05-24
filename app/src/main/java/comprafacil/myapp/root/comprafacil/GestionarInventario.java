@@ -16,6 +16,7 @@ import model.Producto;
 public class GestionarInventario extends AppCompatActivity {
     private ArrayList<Producto> listaProductos;
     private AdaptadorSeries adaptador;
+    private ListView listView1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +26,7 @@ public class GestionarInventario extends AppCompatActivity {
         listaProductos = getPedidos();
 
         adaptador = new AdaptadorSeries(this);
-        ListView listView1 = (ListView) findViewById(R.id.listView_ModificarInventario);
+        listView1 = (ListView) findViewById(R.id.listView_ModificarInventario);
         listView1.setAdapter(adaptador);
     }
 
@@ -38,7 +39,7 @@ public class GestionarInventario extends AppCompatActivity {
         return listaProductos;
     }
 
-    public void agregarNuevoProducto(){
+    public void agregarNuevoProducto(View view){
         EditText editTextNombre = (EditText)findViewById(R.id.editText_NombreProducto);
         EditText editTextCategoria = (EditText)findViewById(R.id.editText_CategoriaProducto);
         EditText editTextPrecio = (EditText)findViewById(R.id.editText_PrecioProducto);
