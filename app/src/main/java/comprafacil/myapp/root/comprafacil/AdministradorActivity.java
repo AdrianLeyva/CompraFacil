@@ -14,7 +14,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class AdministradorActivity extends AppCompatActivity {
     private ArrayList<Producto> listaProductos;
@@ -59,7 +58,7 @@ public class AdministradorActivity extends AppCompatActivity {
     }
 
     public void abrirModificarInventario(View view){
-        Intent i = new Intent(this, ModificarInventario.class);
+        Intent i = new Intent(this, GestionarInventario.class);
         startActivity(i);
     }
 
