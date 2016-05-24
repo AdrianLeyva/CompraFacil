@@ -6,11 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import controller.ButtonAgregarOnClick;
 import model.Producto;
 
 public class GestionarInventario extends AppCompatActivity {
@@ -69,7 +71,6 @@ public class GestionarInventario extends AppCompatActivity {
 
     public void restablecerInventario(){
         listaProductos.clear();
-        listaProductos.add(new Producto("",""));
         adaptador.notifyDataSetChanged();
     }
 
@@ -100,6 +101,8 @@ public class GestionarInventario extends AppCompatActivity {
             EditText cantidad = (EditText) item.findViewById(R.id.editText_Cantidad);
             cantidad.setHint(String.valueOf(listaProductos.get(position).getCantidad()));
 
+            Button buttonAgregarProducto = (Button)item.findViewById(R.id.button_agregarProducto);
+            buttonAgregarProducto.setOnClickListener(new ButtonAgregarOnClick(position,cantidad,listaProductos,appCompatActivity));
           return (item);
         }
     }

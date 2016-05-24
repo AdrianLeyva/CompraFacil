@@ -5,10 +5,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import java.util.ArrayList;
-
-import comprafacil.myapp.root.comprafacil.R;
 import model.Producto;
 
 /**
@@ -31,7 +28,7 @@ public class ButtonAgregarOnClick implements View.OnClickListener {
 
         int totalProductos = listaProducto.get(position).getCantidad();
 
-        if (cantidad.getText().toString() == "") {
+        if ((cantidad.getText().toString().equals(""))) {
             listaProducto.get(position).setCantidad(totalProductos + 1);
             cantidad.setHint(String.valueOf(totalProductos + 1));
         }
@@ -40,9 +37,7 @@ public class ButtonAgregarOnClick implements View.OnClickListener {
             int total = totalProductos + cantidadEditText;
             listaProducto.get(position).setCantidad(total);
             cantidad.setHint(String.valueOf(total));
+            cantidad.setText("");
         }
-
-        Toast toast = Toast.makeText(context,"Funciona",Toast.LENGTH_SHORT);
-        toast.show();
     }
 }
