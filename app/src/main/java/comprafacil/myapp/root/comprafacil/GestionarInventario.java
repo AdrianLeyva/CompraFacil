@@ -54,7 +54,7 @@ public class GestionarInventario extends AppCompatActivity {
         adaptador.notifyDataSetChanged();
     }
 
-
+//clase del adaptador
     class AdaptadorSeries extends ArrayAdapter<Producto> {
 
         AppCompatActivity appCompatActivity;
