@@ -62,6 +62,11 @@ public class AdministradorActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void abrirGestionarEmpleado(View view){
+        Intent i = new Intent(this, GestionarEmpleadosActivity.class);
+        startActivity(i);
+    }
+
 
 
     class AdaptadorSeries extends ArrayAdapter<Producto> {

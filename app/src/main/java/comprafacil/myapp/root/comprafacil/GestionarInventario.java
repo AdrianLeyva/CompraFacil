@@ -69,13 +69,13 @@ public class GestionarInventario extends AppCompatActivity {
             View item = inflater.inflate(R.layout.list_item_gestionar_inventario, null);
 
             EditText categoria = (EditText) item.findViewById(R.id.editText_Categoria);
-            categoria.setHint(String.valueOf(listaProductos.get(position).getCategoria()));
+            categoria.setText(String.valueOf(listaProductos.get(position).getCategoria()));
 
             EditText nombre = (EditText) item.findViewById(R.id.editText_Producto);
-            nombre.setHint(String.valueOf(listaProductos.get(position).getNombre()));
+            nombre.setText(String.valueOf(listaProductos.get(position).getNombre()));
 
             EditText precio = (EditText) item.findViewById(R.id.editText_Precio);
-            precio.setHint(String.valueOf(listaProductos.get(position).getPrecio()));
+            precio.setText(String.valueOf(listaProductos.get(position).getPrecio()));
 
             EditText cantidad = (EditText) item.findViewById(R.id.editText_Cantidad);
             cantidad.setHint(String.valueOf(listaProductos.get(position).getCantidad()));

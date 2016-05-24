@@ -2,12 +2,17 @@ package comprafacil.myapp.root.comprafacil;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import persistencia.ProvisionalEmpleadosBD;
 import model.Empleado;
 import controller.ControladorEmpleado;
 
@@ -28,18 +33,42 @@ public class GestionarEmpleadosActivity extends AppCompatActivity {
         listaEmpleado = new ArrayList<Empleado>();
         listaEmpleado = controladorEmpleado.getListaEmpleados();
 
+        //Realiza el proceso del adaptador, para mandarle la vista de los elementos
+        AdaptadorEmpleado adaptador = new AdaptadorEmpleado(this);
+        ListView lv_Empleados = (ListView) findViewById(R.id.lv_elementos_gestionar_empleados);
+        lv_Empleados.setAdapter(adaptador);
+
 
     }
 
 
-   private class AdaptadorEmpleado extends ArrayList<Empleado> {
+   private class AdaptadorEmpleado extends ArrayAdapter<Empleado> {
         private AppCompatActivity appCompatActivity;
 
-       /* AdaptadorEmpleado(AppCompatActivity context){
-            super(context, R.layout., listaProductos);
+        AdaptadorEmpleado(AppCompatActivity context){
+            super(context, R.layout.list_item_gestionar_empleados, listaEmpleado);
             appCompatActivity = context;
         }
-       */
+
+       public View getView(int position, View convertView, ViewGroup parent){
+           LayoutInflater inflater = appCompatActivity.getLayoutInflater();
+           View item = inflater.inflate(R.layout.list_item_gestionar_empleados, null);
+
+           TextView tvnombre_empleados = (TextView) item.findViewById(R.id.tv_nombre_empleados);
+           tvnombre_empleados.setHint(listaEmpleado.get(position).getNombre());
+
+           TextView tvpuesto_empleados = (TextView) item.findViewById(R.id.tv_puesto_empleado);
+           tvpuesto_empleados.setHint(listaEmpleado.get(position).getPuesto());
+
+           TextView tvusuario_empleados = (TextView) item.findViewById(R.id.tv_usuario_empleado);
+           tvusuario_empleados.setHint(listaEmpleado.get(position).getUsuario());
+
+           TextView tvcontraseña_empleados = (TextView) item.findViewById(R.id.et_contraseña_empleado);
+           tvcontraseña_empleados.setHint(listaEmpleado.get(position).getClave());
+
+           return (item);
+       }
+
     }
 
 }

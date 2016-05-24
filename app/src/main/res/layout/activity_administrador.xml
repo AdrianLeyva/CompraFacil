@@ -51,7 +51,8 @@
                     android:layout_marginBottom="30dp"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:text="@string/button_Gestionar_Empleados" />
+                    android:text="@string/button_Gestionar_Empleados"
+                    android:onClick="abrirGestionarEmpleado" />
 
                 <Button
                     android:layout_width="wrap_content"

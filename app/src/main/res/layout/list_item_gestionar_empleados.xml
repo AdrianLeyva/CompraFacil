@@ -3,4 +3,93 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="#787880"
+            android:orientation="horizontal"
+            android:alpha=".75">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="30sp"
+                android:singleLine="true"
+                android:id="@+id/tv_nombre_empleados"
+                android:textColorHint="#ffffff"
+                android:textColor="#f4efef"
+               />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_gravity="left"
+            android:background="#acabab"
+            android:orientation="horizontal"
+            android:alpha=".75">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="30sp"
+                android:singleLine="true"
+                android:id="@+id/tv_puesto_empleado"
+                android:textColorHint="#ffffff"
+                android:textColor="#f4efef"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_gravity="left"
+            android:background="#787880"
+            android:orientation="horizontal"
+            android:alpha=".75">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="30sp"
+                android:singleLine="true"
+                android:id="@+id/tv_usuario_empleado"
+                android:textColorHint="#ffffff"
+                android:textColor="#f4efef"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_gravity="left"
+            android:background="#acabab"
+            android:orientation="horizontal"
+            android:alpha=".75">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="30sp"
+                android:singleLine="true"
+                android:id="@+id/et_contraseña_empleado"
+                android:textColorHint="#ffffff"
+                android:textColor="#f4efef"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
 </RelativeLayout>
