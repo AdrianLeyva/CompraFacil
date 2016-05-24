@@ -28,6 +28,10 @@ public class ValidarUsuarioActivity extends AppCompatActivity {
     public void onClick(View v) {
         if (v.getId() == R.id.button_validarUsuario) {
 
+            Intent i = new Intent(this, AdministradorActivity.class);
+            startActivity(i);
+
+            /*
             ControladorAdministrador controladorAdministrador = new ControladorAdministrador(this);
             empleado = controladorAdministrador.verificarUsuario();
             if(empleado == null){
@@ -41,6 +45,7 @@ public class ValidarUsuarioActivity extends AppCompatActivity {
                 startActivity(i);
             }
 
+            */
         }
 
     }

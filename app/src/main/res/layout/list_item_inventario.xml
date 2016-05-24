@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_Producto"
+        android:hint="Nombre del producto"
+        android:textSize="20sp"
+        android:background="#9c9c9c"
+        android:textColor="#ff0000"
+        android:alpha=".8"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_Categoria"
+        android:hint="Categoria del producto"
+        android:textSize="20sp"
+        android:background="#9c9c9c"
+        android:textColor="#ff0000"
+        android:alpha=".8"
+        android:layout_toRightOf="@+id/editText_Producto"
+        android:layout_marginLeft="15dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_Precio"
+        android:hint="Precio del producto"
+        android:textSize="20sp"
+        android:background="#9c9c9c"
+        android:textColor="#ff0000"
+        android:alpha=".8"
+        android:layout_toRightOf="@+id/editText_Categoria"
+        android:layout_marginLeft="15dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_Cantidad"
+        android:hint="Cantidad de productos"
+        android:textSize="20sp"
+        android:textColor="#ff0000"
+        android:background="#9c9c9c"
+        android:alpha=".8"
+        android:layout_toRightOf="@+id/editText_Precio"
+        android:layout_marginLeft="15dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:background="#ff0000"
+        android:alpha=".8"
+        android:id="@+id/button_agregarProducto"
+        android:layout_toRightOf="@+id/editText_Cantidad"
+        android:layout_marginLeft="15dp"
+        android:layout_alignBottom="@+id/editText_Cantidad" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:background="#ff0000"
+        android:alpha=".8"
+        android:id="@+id/button_restarProducto"
+        android:layout_toRightOf="@+id/button_agregarProducto"
+        android:layout_marginLeft="15dp"
+        android:layout_alignBottom="@+id/editText_Cantidad" />
+
+</RelativeLayout>

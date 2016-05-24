@@ -19,12 +19,18 @@
     <string name="button_Consultar_Inventario">Consultar inventario</string>
     <string name="button_Modificar_Inventario">Modificar inventario</string>
     <string name="button_Cerrar_Sesion">Cerrar sesión</string>
+    <string name="button_Actualizar_Inventario">Actualizar inventario</string>
+    <string name="button_Restablecer_Inventario">Restablecer inventario</string>
     <string name="CantidadDis">CandidadDis</string>
     <string name="CandidadDis">Cantidad Disponible</string>
     <string name="Precio">Precio</string>
     <string name="Categoria">Categoria</string>
     <string name="Comprar">Comprar</string>
-
+    <string name="textView_Agregar_Nuevo_Producto">Agregar nuevos productos</string>
+    <string name="editText_Nombre_Producto">Nombre...</string>
+    <string name="editText_Categoria_Producto">Categoria...</string>
+    <string name="editText_Precio_Producto">Precio...</string>
+    <string name="editText_Cantidad_Producto">Cantidad...</string>
     <string name="columa_nombre">NOMBRE</string>
     <string name="columa_categoria">CATEGORIA</string>
     <string name="columa_cantidad">CANTIDAD</string>

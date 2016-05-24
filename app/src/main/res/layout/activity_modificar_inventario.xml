@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="comprafacil.myapp.root.comprafacil.ModificarInventario">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:layout_width="1009dp"
+            android:layout_height="580dp"
+            android:layout_gravity="left|top">
+
+            <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/listView_ModificarInventario" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="1039dp"
+            android:layout_height="153dp"
+            android:layout_gravity="left|bottom"
+            android:background="#1b1b1b">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_Actualizar_Inventario"
+                android:layout_marginLeft="95dp"
+                android:layout_marginStart="95dp"
+                android:text="@string/button_Actualizar_Inventario"
+                android:background="#ff0000"
+                android:textColor="#ffffff"
+                android:alpha=".8"
+                android:textSize="20sp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_Restablecer_Inventario"
+                android:text="@string/button_Restablecer_Inventario"
+                android:background="#ff0000"
+                android:textColor="#ffffff"
+                android:alpha=".8"
+                android:textSize="20sp"
+                android:layout_marginRight="118dp"
+                android:layout_marginEnd="118dp"
+                android:layout_alignTop="@+id/button_Actualizar_Inventario"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="259dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right|center_vertical"
+            android:background="#898989">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/textView_Agregar_Nuevo_Producto"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:background="#000000"
+                android:textSize="25sp"
+                android:id="@+id/textView_NuevoProducto"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:id="@+id/editText_NombreProducto"
+                android:hint="@string/editText_Nombre_Producto"
+                android:textSize="25sp"
+                android:background="#ffffff"
+                android:alpha=".8"
+                android:gravity="center"
+                android:layout_below="@+id/textView_NuevoProducto"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:id="@+id/editText_CategoriaProducto"
+                android:hint="@string/editText_Categoria_Producto"
+                android:textSize="25sp"
+                android:background="#ffffff"
+                android:alpha=".8"
+                android:gravity="center"
+                android:layout_below="@+id/editText_NombreProducto"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:id="@+id/editText_PrecioProducto"
+                android:hint="@string/editText_Precio_Producto"
+                android:textSize="25sp"
+                android:background="#ffffff"
+                android:alpha=".8"
+                android:gravity="center"
+                android:layout_below="@+id/editText_CategoriaProducto"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:id="@+id/editText_CantidadProducto"
+                android:hint="@string/editText_Cantidad_Producto"
+                android:textSize="25sp"
+                android:background="#ffffff"
+                android:alpha=".8"
+                android:gravity="center"
+                android:layout_below="@+id/editText_PrecioProducto"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="Agregar"
+                android:id="@+id/button_AgregarNuevoProducto"
+                android:textColor="#ffffff"
+                android:background="#ff0000"
+                android:alpha=".8"
+                android:textSize="20sp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+    </FrameLayout>
+</RelativeLayout>

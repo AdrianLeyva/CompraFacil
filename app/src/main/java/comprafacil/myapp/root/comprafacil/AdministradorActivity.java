@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class AdministradorActivity extends AppCompatActivity {
     private ArrayList<Producto> listaProductos;
@@ -29,7 +30,7 @@ public class AdministradorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_administrador);
 
 
-        listaProductos = new ArrayList<Producto>();
+        listaProductos = new ArrayList<>();
         listaProductos = getPedidos();
 
 
@@ -37,20 +38,6 @@ public class AdministradorActivity extends AppCompatActivity {
         ListView listView1 = (ListView) findViewById(R.id.listView_Pedidos);
         listView1.setAdapter(adaptador);
 
-     /*   ListView listViewPedidos = (ListView) findViewById(R.id.listView_Pedidos);
-        listaProductos = getPedidos();
-        AdapterListItemPedidos adaptador = new AdapterListItemPedidos(this, listaProductos);
-        listViewPedidos.setAdapter(adaptador);
-*/
-
-        /*
-        //Inicializa el listView con los pedidos actuales
-        list = (ListView) findViewById(R.id.listView_Pedidos);
-        adapter = new AdapterListItemPedidos(this, getPedidos());
-        list.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-
-        */
     }
     public void cerrarSesion(View view){
         finish();
@@ -61,7 +48,7 @@ public class AdministradorActivity extends AppCompatActivity {
         listaProductos.add(new Producto("Bebida", "Pepsi",2));
         listaProductos.add(new Producto("Dulces", "Rockaleta",4));
         listaProductos.add(new Producto("Dulces", "TupsiPop",1));
-        listaProductos.add(new Producto("Sabritas", "Doritos",2));
+        listaProductos.add(new Producto("Sabritas", "Doritos", 2));
         return listaProductos;
     }
 
@@ -69,6 +56,11 @@ public class AdministradorActivity extends AppCompatActivity {
         Intent i = new Intent(this, ConsultaInventarioActivity.class);
         startActivity(i);
 
+    }
+
+    public void abrirModificarInventario(View view){
+        Intent i = new Intent(this, ModificarInventario.class);
+        startActivity(i);
     }
 
 

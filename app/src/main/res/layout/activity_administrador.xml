@@ -72,7 +72,8 @@
                     android:textSize="20sp"
                     android:alpha="0.8"
                     android:id="@+id/button_Modificar_Inventario"
-                    android:layout_below="@+id/button_Consultar_Inventario" />
+                    android:layout_below="@+id/button_Consultar_Inventario"
+                    android:onClick="abrirModificarInventario" />
 
                 <TextView
                     android:layout_width="match_parent"
