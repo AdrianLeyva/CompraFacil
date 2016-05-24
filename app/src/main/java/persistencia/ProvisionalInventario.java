@@ -1,9 +1,8 @@
 package persistencia;
 
 import java.util.ArrayList;
-
 import model.Producto;
-import java.util.ArrayList;
+
 
 /**
  * Created by kevingamboa17 on 19/05/16.

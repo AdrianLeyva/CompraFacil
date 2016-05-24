@@ -6,10 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -20,7 +18,7 @@ public class ModificarInventario extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_modificar_inventario);
+        setContentView(R.layout.activity_gestionar_inventario);
 
         listaProductos = new ArrayList<>();
         listaProductos = getPedidos();
@@ -45,14 +43,14 @@ public class ModificarInventario extends AppCompatActivity {
         AppCompatActivity appCompatActivity;
 
         AdaptadorSeries(AppCompatActivity context) {
-            super(context, R.layout.list_item_inventario, listaProductos);
+            super(context, R.layout.list_item_gestionar_inventario, listaProductos);
             appCompatActivity = context;
         }
 
         public View getView(int position, View convertView, ViewGroup parent) {
 
             LayoutInflater inflater = appCompatActivity.getLayoutInflater();
-            View item = inflater.inflate(R.layout.list_item_inventario, null);
+            View item = inflater.inflate(R.layout.list_item_gestionar_inventario, null);
 
             EditText categoria = (EditText) item.findViewById(R.id.editText_Categoria);
             categoria.setText(String.valueOf(listaProductos.get(position).getCategoria()));

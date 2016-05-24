@@ -41,18 +41,18 @@ public class ConsultaInventarioActivity extends AppCompatActivity {
 
 
 
-    class AdaptadorInventario extends ArrayAdapter<Producto> {
+private class AdaptadorInventario extends ArrayAdapter<Producto> {
 
         AppCompatActivity appCompatActivity;
 
         AdaptadorInventario(AppCompatActivity context) {
-            super(context, R.layout.elementos_inventario, listaProductos);
+            super(context, R.layout.list_item_consulta_inventario, listaProductos);
             appCompatActivity = context;
         }
 
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = appCompatActivity.getLayoutInflater();
-            View item = inflater.inflate(R.layout.elementos_inventario, null);
+            View item = inflater.inflate(R.layout.list_item_consulta_inventario, null);
 
             TextView tvnombre_inventario = (TextView) item.findViewById(R.id.elemento_inventario_nombre);
             tvnombre_inventario.setText(listaProductos.get(position).getNombre());
