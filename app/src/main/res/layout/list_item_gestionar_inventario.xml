@@ -78,4 +78,18 @@
         android:layout_marginLeft="15dp"
         android:layout_alignBottom="@+id/editText_Cantidad" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eliminar"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:background="#ff0000"
+        android:alpha=".8"
+        android:id="@+id/button_eliminarProducto"
+        android:layout_toRightOf="@+id/button_restarProducto"
+        android:layout_marginLeft="15dp"
+        android:layout_alignBottom="@+id/editText_Cantidad"
+        android:onClick="eliminarProducto" />
+
 </RelativeLayout>

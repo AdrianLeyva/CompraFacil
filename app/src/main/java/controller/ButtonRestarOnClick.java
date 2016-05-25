@@ -31,7 +31,11 @@ public class ButtonRestarOnClick implements View.OnClickListener {
         if ((cantidad.getText().toString().equals(""))) {
             if(totalProductos>0){
                 listaProducto.get(position).setCantidad(totalProductos - 1);
-                cantidad.setHint(String.valueOf(totalProductos + 1));
+                cantidad.setHint(String.valueOf(totalProductos - 1));
+            }
+            else {
+                Toast toast = Toast.makeText(context,"No puede eliminar más productos de los que tiene", Toast.LENGTH_SHORT);
+                toast.show();
             }
         }
         else{

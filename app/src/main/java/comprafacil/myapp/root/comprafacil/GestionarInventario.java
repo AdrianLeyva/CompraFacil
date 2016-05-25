@@ -13,10 +13,16 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import controller.ButtonAgregarOnClick;
+import controller.ButtonEliminarOnClick;
+import controller.ButtonRestarOnClick;
+import controller.EditTextCantidadWatcher;
+import controller.EditTextCategoriaWatcher;
+import controller.EditTextNombreWatcher;
+import controller.EditTextPrecioWatcher;
 import model.Producto;
 
 public class GestionarInventario extends AppCompatActivity {
-    //variables
+
     private ArrayList<Producto> listaProductos;
     private AdaptadorSeries adaptador;
     private ListView listView1;
@@ -67,7 +73,7 @@ public class GestionarInventario extends AppCompatActivity {
     }
 
     public void actualizarInventario(View view){
-
+        adaptador.notifyDataSetChanged();
     }
 
     public void restablecerInventario(){
@@ -76,7 +82,7 @@ public class GestionarInventario extends AppCompatActivity {
     }
 
 //clase del adaptador
-    class AdaptadorSeries extends ArrayAdapter<Producto> {
+   class AdaptadorSeries extends ArrayAdapter<Producto> {
 
         AppCompatActivity appCompatActivity;
 
@@ -92,18 +98,27 @@ public class GestionarInventario extends AppCompatActivity {
 
             EditText categoria = (EditText) item.findViewById(R.id.editText_Categoria);
             categoria.setText(String.valueOf(listaProductos.get(position).getCategoria()));
+            categoria.addTextChangedListener(new EditTextCategoriaWatcher(position, listaProductos, categoria, appCompatActivity));
 
             EditText nombre = (EditText) item.findViewById(R.id.editText_Producto);
             nombre.setText(String.valueOf(listaProductos.get(position).getNombre()));
+            nombre.addTextChangedListener(new EditTextNombreWatcher(position, listaProductos, nombre, appCompatActivity));
 
             EditText precio = (EditText) item.findViewById(R.id.editText_Precio);
             precio.setText(String.valueOf(listaProductos.get(position).getPrecio()));
+            precio.addTextChangedListener(new EditTextPrecioWatcher(position, listaProductos, precio, appCompatActivity));
 
             EditText cantidad = (EditText) item.findViewById(R.id.editText_Cantidad);
             cantidad.setHint(String.valueOf(listaProductos.get(position).getCantidad()));
 
             Button buttonAgregarProducto = (Button)item.findViewById(R.id.button_agregarProducto);
             buttonAgregarProducto.setOnClickListener(new ButtonAgregarOnClick(position,cantidad,listaProductos,appCompatActivity));
+
+            Button buttonRestarProducto = (Button)item.findViewById(R.id.button_restarProducto);
+            buttonRestarProducto.setOnClickListener(new ButtonRestarOnClick(position,cantidad,listaProductos,appCompatActivity));
+
+            Button buttonEliminarProducto = (Button)item.findViewById(R.id.button_eliminarProducto);
+            buttonEliminarProducto.setOnClickListener(new ButtonEliminarOnClick(position,listaProductos,appCompatActivity,adaptador));
           return (item);
         }
     }
