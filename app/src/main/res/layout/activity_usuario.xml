@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="comprafacil.myapp.root.comprafacil.UsuarioActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="875dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|top"
+            android:background="#a1a1a1">
+
+            <RelativeLayout
+                android:layout_width="864dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/textView_Titulo_Usuario_Activity"
+                    android:textSize="60sp"
+                    android:textColor="#ff0000"
+                    android:background="#000000"
+                    android:gravity="center"
+                    android:id="@+id/textView_tituloUsuario"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/button_Categoria_Bebidas"
+                    android:id="@+id/button_CategoriaBebidas"
+                    android:textSize="60sp"
+                    android:textColor="#ffffff"
+                    android:background="#912121"
+                    android:layout_marginTop="138dp"
+                    android:layout_below="@+id/textView_tituloUsuario"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/button_Categoria_Botanas"
+                    android:id="@+id/button_CategoriaBotanas"
+                    android:textSize="60sp"
+                    android:textColor="#ffffff"
+                    android:background="#912121"
+                    android:layout_alignTop="@+id/button_CategoriaBebidas"
+                    android:layout_centerHorizontal="true" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/button_Categoria_Dulces"
+                    android:id="@+id/button_CategoriaDulces"
+                    android:textSize="60sp"
+                    android:textColor="#ffffff"
+                    android:background="#912121"
+                    android:layout_alignTop="@+id/button_CategoriaBotanas"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/button_Categoria_Galletas"
+                    android:id="@+id/button_CategoriaGalletas"
+                    android:textSize="60sp"
+                    android:textColor="#ffffff"
+                    android:background="#912121"
+                    android:layout_marginTop="151dp"
+                    android:layout_below="@+id/button_CategoriaBotanas"
+                    android:layout_alignRight="@+id/button_CategoriaBotanas"
+                    android:layout_alignEnd="@+id/button_CategoriaBotanas" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/button_Categoria_Postres"
+                    android:id="@+id/button_CategoriaPostres"
+                    android:textSize="60sp"
+                    android:textColor="#ffffff"
+                    android:background="#912121"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toLeftOf="@+id/button_CategoriaBotanas"
+                    android:layout_toStartOf="@+id/button_CategoriaBotanas"
+                    android:layout_marginBottom="40dp"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/button_Categoria_Sabritas"
+                    android:id="@+id/button_CategoriaSabritas"
+                    android:textSize="60sp"
+                    android:textColor="#ffffff"
+                    android:background="#912121"
+                    android:layout_alignTop="@+id/button_CategoriaPostres"
+                    android:layout_toRightOf="@+id/button_CategoriaGalletas"
+                    android:layout_toEndOf="@+id/button_CategoriaGalletas" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="401dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right|center_vertical">
+
+            <RelativeLayout
+                android:layout_width="405dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:background="#000000">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/textView_Titulo_Carrito_Compras"
+                    android:textSize="46sp"
+                    android:textColor="#ff0000"
+                    android:background="#000000"
+                    android:gravity="center"
+                    android:id="@+id/textView_tituloCarritoCompras"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/textView_tituloCarritoCompras"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:id="@+id/linearLayout2">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Productos"
+                        android:textSize="20sp"
+                        android:gravity="center"
+                        android:textColor="#ffffff"
+                        android:id="@+id/textView_CarritoComprasProducto" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cantidad"
+                            android:layout_marginLeft="30dp"
+                            android:textSize="20sp"
+                            android:gravity="center"
+                            android:textColor="#ffffff"
+                            android:id="@+id/textView_CarritoComprasCantidad" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Precio"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="20sp"
+                            android:gravity="center"
+                            android:textColor="#ffffff"
+                            android:id="@+id/textView_CarritoComprasPrecio" />
+                </LinearLayout>
+</LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/linearLayout2"
+                    android:layout_centerHorizontal="true">
+
+                    <ListView
+                        android:layout_width="wrap_content"
+                        android:layout_height="559dp"
+                        android:id="@+id/listView_CarritoCompras"
+                        android:background="#ffffff" />
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Confirmar compra"
+                    android:textColor="#ffffff"
+                    android:background="#ff0000"
+                    android:gravity="center"
+                    android:alpha=".8"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginLeft="30dp"
+                    android:id="@+id/button_CarritoComprasConfirmarCompra"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cancelar compra"
+                    android:textColor="#ffffff"
+                    android:background="#ff0000"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginRight="30dp"
+                    android:gravity="center"
+                    android:alpha=".8"
+                    android:id="@+id/button_CarritoComprasCancelarCompra"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </FrameLayout>
+</RelativeLayout>

@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import controller.ButtonAgregarOnClick;
 import controller.ButtonEliminarOnClick;
 import controller.ButtonRestarOnClick;
-import controller.EditTextCantidadWatcher;
 import controller.EditTextCategoriaWatcher;
 import controller.EditTextNombreWatcher;
 import controller.EditTextPrecioWatcher;

@@ -26,7 +26,7 @@ public class ModoUsuarioActivity extends AppCompatActivity {
     }
 
     public void abrirModoClientes(View view){
-        Intent i = new Intent(this, ConsultaInventarioActivity.class);
+        Intent i = new Intent(this, UsuarioActivity.class);
         startActivity(i);
 
 
