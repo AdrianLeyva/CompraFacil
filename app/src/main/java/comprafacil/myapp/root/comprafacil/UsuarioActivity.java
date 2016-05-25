@@ -63,7 +63,7 @@ public class UsuarioActivity extends AppCompatActivity {
             buttonAgregar.setOnClickListener(new ButtonCarritoAgregarOnClick(position,textViewCantidad,listaProductos,appCompatActivity));
 
             Button buttonRestar = (Button)item.findViewById(R.id.button_CarritoMenos);
-            buttonRestar.setOnClickListener(new ButtonCarritoRestarOnClick(position,textViewCantidad,listaProductos,appCompatActivity));
+            buttonRestar.setOnClickListener(new ButtonCarritoRestarOnClick(position,textViewCantidad,listaProductos,appCompatActivity,adaptador));
 
             Button buttonEliminar = (Button)item.findViewById(R.id.button_CarritoEliminar);
             buttonEliminar.setOnClickListener(new ButtonCarritoEliminarOnClick(position,listaProductos,adaptador));

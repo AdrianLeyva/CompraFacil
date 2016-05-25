@@ -187,11 +187,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/linearLayout2"
-                    android:layout_centerHorizontal="true">
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/linearLayout5">
 
                     <ListView
                         android:layout_width="wrap_content"
-                        android:layout_height="559dp"
+                        android:layout_height="481dp"
                         android:id="@+id/listView_CarritoCompras"
                         android:background="#ffffff" />
                 </LinearLayout>
@@ -225,6 +226,28 @@
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total:"
+                    android:textColor="#ffffff"
+                    android:textSize="40sp"
+                    android:id="@+id/textView_TotalCompra"
+                    android:layout_below="@+id/linearLayout5"
+                    android:layout_alignLeft="@+id/button_CarritoComprasConfirmarCompra"
+                    android:layout_alignStart="@+id/button_CarritoComprasConfirmarCompra" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$00.00"
+                    android:textColor="#ffffff"
+                    android:textSize="40sp"
+                    android:id="@+id/textView_ValorTotalCompra"
+                    android:layout_below="@+id/linearLayout5"
+                    android:layout_toRightOf="@+id/button_CarritoComprasConfirmarCompra"
+                    android:layout_toEndOf="@+id/button_CarritoComprasConfirmarCompra" />
 
             </RelativeLayout>
         </LinearLayout>
