@@ -21,6 +21,7 @@ import model.Producto;
 import persistencia.ProvisionalInventario;
 
 public class UsuarioActivity extends AppCompatActivity {
+    //Variables
     private ArrayList<Producto> listaProductos;
     private AdaptadorCarrito adaptador;
     private ListView listView1;
