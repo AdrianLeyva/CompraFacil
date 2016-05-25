@@ -8,20 +8,20 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import model.Producto;
+import model.Empleado;
 
 /**
- * Created by leyva on 24/05/2016.
+ * Created by kevingamboa17 on 24/05/16.
  */
-public class EditTextNombreWatcher implements TextWatcher {
+public class EditTextNombreEmpleadosWatcher implements TextWatcher {
     int position;
-    private ArrayList<Producto> listaProductos;
+    private ArrayList<Empleado> listaEmpleados;
     EditText categoria;
     Context context;
 
-    public EditTextNombreWatcher(int position, ArrayList<Producto> listaProductos, EditText categoria,Context context){
+    public EditTextNombreEmpleadosWatcher(int position, ArrayList<Empleado> listaEmpleados, EditText categoria,Context context){
         this.position = position;
-        this.listaProductos = listaProductos;
+        this.listaEmpleados = listaEmpleados;
         this.categoria = categoria;
         this.context = context;
     }
@@ -37,7 +37,6 @@ public class EditTextNombreWatcher implements TextWatcher {
 
     @Override
     public void afterTextChanged(Editable s) {
-        listaProductos.get(position).setNombre(s.toString());
-
+        listaEmpleados.get(position).setNombre(s.toString());
     }
 }

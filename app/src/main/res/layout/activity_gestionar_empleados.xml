@@ -15,7 +15,8 @@
         <RelativeLayout
             android:layout_width="1009dp"
             android:layout_height="580dp"
-            android:layout_gravity="left|top">
+            android:layout_gravity="left|top"
+            android:onClick="actualizarEmpleados">
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -135,7 +136,8 @@
                 android:textSize="20sp"
                 android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:onClick="actualizarEmpleados" />
 
             <Button
                 android:layout_width="wrap_content"

@@ -1,0 +1,57 @@
+package controller;
+
+import android.content.Context;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+
+import model.Producto;
+
+/**
+ * Created by kevingamboa17 on 25/05/16.
+ */
+public class ButtonAgregarProductoCategoriaGenerica implements View.OnClickListener {
+    private int position;
+    private ArrayList<Producto> listaCategoria;
+    private ArrayList<Producto> listaProductoCarrito;
+    private Context context;
+    private ArrayAdapter<Producto> adaptador;
+    private int h=0;
+    private int bandera = 0;
+
+    public ButtonAgregarProductoCategoriaGenerica(int position, ArrayList<Producto> listaProductoCarrito, Context context, ArrayList<Producto> listaCategoria, ArrayAdapter<Producto> adaptador){
+        this.position = position;
+        this.listaProductoCarrito = listaProductoCarrito;
+        this.listaCategoria = listaCategoria;
+        this.context = context;
+        this.adaptador = adaptador;
+    }
+
+    @Override
+    public void onClick(View v) {
+
+
+     //   for (int i=0; i<listaProductoCarrito.size(); i++){
+           /* if (listaProductoCarrito.get(i).getNombre() == listaCategoria.get(i).getNombre()){
+                h = Integer.valueOf(listaProductoCarrito.get(i).getCantidad());
+                h += 1;
+
+                listaProductoCarrito.get(i).setCantidad(h);
+                adaptador.notifyDataSetChanged();
+                Toast toast = Toast.makeText(context, "Si funciona weeee", Toast.LENGTH_SHORT );
+                toast.show();
+                bandera = 1;
+                break;
+            }
+            if(bandera == 0){
+             */ listaProductoCarrito.add(listaCategoria.get(position));
+                adaptador.notifyDataSetChanged();
+         //   }
+
+       // }
+
+    }
+}
+

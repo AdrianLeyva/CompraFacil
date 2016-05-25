@@ -1,5 +1,6 @@
 package comprafacil.myapp.root.comprafacil;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -36,6 +37,11 @@ public class UsuarioActivity extends AppCompatActivity {
         adaptador = new AdaptadorCarrito(this);
         listView1 = (ListView) findViewById(R.id.listView_CarritoCompras);
         listView1.setAdapter(adaptador);
+    }
+
+    public void abrirCategoriaGenerica(View view){
+        Intent i = new Intent(this, CategoriaGenericaActivity.class);
+        startActivity(i);
     }
 
     private class AdaptadorCarrito extends ArrayAdapter<Producto> {

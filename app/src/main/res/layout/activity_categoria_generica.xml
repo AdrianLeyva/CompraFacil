@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="comprafacil.myapp.root.comprafacil.UsuarioActivity">
+    tools:context="comprafacil.myapp.root.comprafacil.CategoriaGenericaActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -17,100 +17,13 @@
             android:layout_width="875dp"
             android:layout_height="match_parent"
             android:layout_gravity="left|top"
-            android:background="#a1a1a1">
+            android:background="#000000">
 
-            <RelativeLayout
-                android:layout_width="864dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/textView_Titulo_Usuario_Activity"
-                    android:textSize="60sp"
-                    android:textColor="#ff0000"
-                    android:background="#000000"
-                    android:gravity="center"
-                    android:id="@+id/textView_tituloUsuario"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/button_Categoria_Bebidas"
-                    android:id="@+id/button_CategoriaBebidas"
-                    android:textSize="60sp"
-                    android:textColor="#ffffff"
-                    android:background="#912121"
-                    android:layout_marginTop="138dp"
-                    android:layout_below="@+id/textView_tituloUsuario"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:onClick="abrirCategoriaGenerica" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/button_Categoria_Botanas"
-                    android:id="@+id/button_CategoriaBotanas"
-                    android:textSize="60sp"
-                    android:textColor="#ffffff"
-                    android:background="#912121"
-                    android:layout_alignTop="@+id/button_CategoriaBebidas"
-                    android:layout_centerHorizontal="true" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/button_Categoria_Dulces"
-                    android:id="@+id/button_CategoriaDulces"
-                    android:textSize="60sp"
-                    android:textColor="#ffffff"
-                    android:background="#912121"
-                    android:layout_alignTop="@+id/button_CategoriaBotanas"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/button_Categoria_Galletas"
-                    android:id="@+id/button_CategoriaGalletas"
-                    android:textSize="60sp"
-                    android:textColor="#ffffff"
-                    android:background="#912121"
-                    android:layout_marginTop="151dp"
-                    android:layout_below="@+id/button_CategoriaBotanas"
-                    android:layout_alignRight="@+id/button_CategoriaBotanas"
-                    android:layout_alignEnd="@+id/button_CategoriaBotanas" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/button_Categoria_Postres"
-                    android:id="@+id/button_CategoriaPostres"
-                    android:textSize="60sp"
-                    android:textColor="#ffffff"
-                    android:background="#912121"
-                    android:layout_alignParentBottom="true"
-                    android:layout_toLeftOf="@+id/button_CategoriaBotanas"
-                    android:layout_toStartOf="@+id/button_CategoriaBotanas"
-                    android:layout_marginBottom="40dp"/>
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/button_Categoria_Sabritas"
-                    android:id="@+id/button_CategoriaSabritas"
-                    android:textSize="60sp"
-                    android:textColor="#ffffff"
-                    android:background="#912121"
-                    android:layout_alignTop="@+id/button_CategoriaPostres"
-                    android:layout_toRightOf="@+id/button_CategoriaGalletas"
-                    android:layout_toEndOf="@+id/button_CategoriaGalletas" />
-            </RelativeLayout>
+            <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/lv_categoria_generica"
+                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
@@ -153,13 +66,13 @@
                         android:layout_height="match_parent">
 
                         <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Productos"
-                        android:textSize="20sp"
-                        android:gravity="center"
-                        android:textColor="#ffffff"
-                        android:id="@+id/textView_CarritoComprasProducto" />
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Productos"
+                            android:textSize="20sp"
+                            android:gravity="center"
+                            android:textColor="#ffffff"
+                            android:id="@+id/textView_CarritoComprasProducto" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -180,8 +93,8 @@
                             android:gravity="center"
                             android:textColor="#ffffff"
                             android:id="@+id/textView_CarritoComprasPrecio" />
+                    </LinearLayout>
                 </LinearLayout>
-</LinearLayout>
 
                 <LinearLayout
                     android:orientation="horizontal"
