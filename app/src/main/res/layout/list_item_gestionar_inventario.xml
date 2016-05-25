@@ -81,7 +81,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Eliminar"
+        android:text="@string/button_eliminarProducto"
         android:textSize="20sp"
         android:textColor="#ffffff"
         android:background="#ff0000"
@@ -89,7 +89,7 @@
         android:id="@+id/button_eliminarProducto"
         android:layout_toRightOf="@+id/button_restarProducto"
         android:layout_marginLeft="15dp"
-        android:layout_alignBottom="@+id/editText_Cantidad"
-        android:onClick="eliminarProducto" />
+        android:onClick="eliminarProducto"
+        android:layout_alignBottom="@+id/button_restarProducto" />
 
 </RelativeLayout>

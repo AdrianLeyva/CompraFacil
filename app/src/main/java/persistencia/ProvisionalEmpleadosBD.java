@@ -7,7 +7,6 @@ package persistencia;
 import java.util.ArrayList;
 
 import model.Empleado;
-import model.Producto;
 
 
 public class ProvisionalEmpleadosBD {

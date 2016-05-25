@@ -3,6 +3,8 @@ package comprafacil.myapp.root.comprafacil;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import model.Producto;
+import persistencia.ProvisionalInventario;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -17,6 +19,8 @@ import java.util.ArrayList;
 
 public class AdministradorActivity extends AppCompatActivity {
     private ArrayList<Producto> listaProductos;
+    private TextView textViewNombre;
+    private TextView textViewPuesto;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -28,9 +32,18 @@ public class AdministradorActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_administrador);
 
+        String nombre = getIntent().getStringExtra("nombre");
+        String puesto = getIntent().getStringExtra("puesto");
+
+        textViewNombre = (TextView)findViewById(R.id.textView_Nombre_Usuario);
+        textViewNombre.setText(nombre);
+
+        textViewPuesto = (TextView)findViewById(R.id.textView_Puesto_Usuario);
+        textViewPuesto.setText(puesto);
 
         listaProductos = new ArrayList<>();
-        listaProductos = getPedidos();
+        ProvisionalInventario provisionalInventario = new ProvisionalInventario();
+        listaProductos = provisionalInventario.getListaProductos();
 
 
         AdaptadorSeries adaptador = new AdaptadorSeries(this);
@@ -42,14 +55,6 @@ public class AdministradorActivity extends AppCompatActivity {
         finish();
     }
 
-    public ArrayList<Producto> getPedidos(){
-        listaProductos.add(new Producto("Bebidas","Coca cola",4));
-        listaProductos.add(new Producto("Bebida", "Pepsi",2));
-        listaProductos.add(new Producto("Dulces", "Rockaleta",4));
-        listaProductos.add(new Producto("Dulces", "TupsiPop",1));
-        listaProductos.add(new Producto("Sabritas", "Doritos", 2));
-        return listaProductos;
-    }
 
     public void abrirConsultarInventario(View view){
         Intent i = new Intent(this, ConsultaInventarioActivity.class);

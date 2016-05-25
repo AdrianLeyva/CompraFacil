@@ -22,6 +22,11 @@ public class Empleado {
         this.clave = clave;
     }
 
+    public Empleado(String nombre,String puesto) {
+        this.nombre = nombre;
+        this.puesto = puesto;
+    }
+
     public String getPuesto() {
         return puesto;
     }

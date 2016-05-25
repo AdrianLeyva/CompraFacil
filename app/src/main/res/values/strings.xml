@@ -45,6 +45,7 @@
     <string name="button_Actualizar_empleado">Actualizar empleados</string>
     <string name="button_Restablecer_empleado">Restablecer empleados</string>
     <string name="button_Agregar_empleado">Agregar</string>
+    <string name="button_eliminarProducto">Eliminar</string>
     <string name="textView_Agregar_Nuevo_Empleado">Agregar nuevo empleado</string>
     <string name="columna_Nombre_empleado">Nombre</string>
     <string name="columna_puesto_empleado">Puesto</string>

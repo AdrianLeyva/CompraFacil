@@ -7,8 +7,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import controller.ControladorAdministrador;
 import model.Empleado;
+import persistencia.ProvisionalEmpleadosBD;
 
 public class ValidarUsuarioActivity extends AppCompatActivity {
     //Atributos
@@ -27,9 +30,21 @@ public class ValidarUsuarioActivity extends AppCompatActivity {
 
     public void onClick(View v) {
         if (v.getId() == R.id.button_validarUsuario) {
-            Intent i = new Intent(this, AdministradorActivity.class);
-            startActivity(i);
 
+            ControladorAdministrador controladorAdministrador = new ControladorAdministrador(this);
+            Empleado empleado = controladorAdministrador.verificarUsuario();
+            if(empleado == null){
+                Toast toast = Toast.makeText(this,"Validación incorrecta", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+            else{
+                Toast toast = Toast.makeText(this,"Validación correcta", Toast.LENGTH_SHORT);
+                toast.show();
+                Intent i = new Intent(this,AdministradorActivity.class);
+                i.putExtra("nombre",empleado.getNombre());
+                i.putExtra("puesto",empleado.getPuesto());
+                startActivity(i);
+            }
 /*
             ControladorAdministrador controladorAdministrador = new ControladorAdministrador(this);
             empleado = controladorAdministrador.verificarUsuario();

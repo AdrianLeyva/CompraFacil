@@ -375,11 +375,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <ListView
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/listView6"
-                        android:layout_column="0" />
                 </TableRow>
 
             </TableLayout>
@@ -408,11 +403,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <ListView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/listView4"
-                        android:layout_column="0" />
                 </TableRow>
             </TableLayout>
 

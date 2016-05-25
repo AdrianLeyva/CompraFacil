@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -20,6 +21,7 @@ import controller.EditTextCategoriaWatcher;
 import controller.EditTextNombreWatcher;
 import controller.EditTextPrecioWatcher;
 import model.Producto;
+import persistencia.ProvisionalInventario;
 
 public class GestionarInventario extends AppCompatActivity {
 
@@ -32,51 +34,52 @@ public class GestionarInventario extends AppCompatActivity {
         setContentView(R.layout.activity_gestionar_inventario);
 
         listaProductos = new ArrayList<>();
-        listaProductos = getPedidos();
+        ProvisionalInventario provisionalInventario = new ProvisionalInventario();
+        listaProductos = provisionalInventario.getListaProductos();
 
         adaptador = new AdaptadorSeries(this);
         listView1 = (ListView) findViewById(R.id.listView_ModificarInventario);
         listView1.setAdapter(adaptador);
     }
 
-    public ArrayList<Producto> getPedidos(){
-        listaProductos.add(new Producto("Bebidas", "Coca cola", 11, 8));
-        listaProductos.add(new Producto("Bebida", "Pepsi", 10, 20));
-        listaProductos.add(new Producto("Dulces", "Rockaleta", 5, 15));
-        listaProductos.add(new Producto("Dulces", "TupsiPop", 4, 10));
-        listaProductos.add(new Producto("Sabritas", "Doritos", 13, 18));
-        return listaProductos;
-    }
-
     public int agregarNuevoProducto(View view){
-        EditText editTextNombre = (EditText)findViewById(R.id.editText_NombreProducto);
-        EditText editTextCategoria = (EditText)findViewById(R.id.editText_CategoriaProducto);
-        EditText editTextPrecio = (EditText)findViewById(R.id.editText_PrecioProducto);
-        EditText editTextCantidad = (EditText)findViewById(R.id.editText_CantidadProducto);
+        try{
+            EditText editTextNombre = (EditText)findViewById(R.id.editText_NombreProducto);
+            EditText editTextCategoria = (EditText)findViewById(R.id.editText_CategoriaProducto);
+            EditText editTextPrecio = (EditText)findViewById(R.id.editText_PrecioProducto);
+            EditText editTextCantidad = (EditText)findViewById(R.id.editText_CantidadProducto);
 
-        String nombre = editTextNombre.getText().toString();
-        String categoria = editTextCategoria.getText().toString();
-        float precio = Float.valueOf(editTextPrecio.getText().toString());
-        int cantidad = Integer.valueOf(editTextCantidad.getText().toString());
+            String nombre = editTextNombre.getText().toString();
+            String categoria = editTextCategoria.getText().toString();
+            float precio = Float.valueOf(editTextPrecio.getText().toString());
+            int cantidad = Integer.valueOf(editTextCantidad.getText().toString());
 
-        for(int i=0;i<listaProductos.size();i++){
-        if(listaProductos.get(i).getNombre().compareTo(nombre) == 0  && listaProductos.get(i).getCategoria().compareTo(categoria) == 0){
-                int j = listaProductos.get(i).getCantidad();
-                listaProductos.get(i).setCantidad(j + cantidad);
-                adaptador.notifyDataSetChanged();
-                return 0;
+            for(int i=0;i<listaProductos.size();i++){
+                if(listaProductos.get(i).getNombre().compareTo(nombre) == 0  && listaProductos.get(i).getCategoria().compareTo(categoria) == 0){
+                    int j = listaProductos.get(i).getCantidad();
+                    listaProductos.get(i).setCantidad(j + cantidad);
+                    adaptador.notifyDataSetChanged();
+                    return 0;
+                }
             }
+            listaProductos.add(new Producto(categoria,nombre,precio,cantidad));
+            adaptador.notifyDataSetChanged();
+            return 0;
+        }catch (Exception e){
+            Toast toast = Toast.makeText(this,"Rellene todos los campos",Toast.LENGTH_SHORT);
+            toast.show();
         }
-        listaProductos.add(new Producto(categoria,nombre,precio,cantidad));
-        adaptador.notifyDataSetChanged();
         return 0;
+
     }
 
     public void actualizarInventario(View view){
         adaptador.notifyDataSetChanged();
+        Toast toast = Toast.makeText(this,"Datos actualizados", Toast.LENGTH_SHORT);
+        toast.show();
     }
 
-    public void restablecerInventario(){
+    public void restablecerInventario(View view){
         listaProductos.clear();
         adaptador.notifyDataSetChanged();
     }
