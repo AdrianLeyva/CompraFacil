@@ -21,6 +21,9 @@ public class AdministradorActivity extends AppCompatActivity {
     private ArrayList<Producto> listaProductos;
     private TextView textViewNombre;
     private TextView textViewPuesto;
+    private  Button buttonModificarEmpleados;
+    private Button buttonModificarInventario;
+    private String administrador = "Administrador";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -32,8 +35,21 @@ public class AdministradorActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_administrador);
 
+        buttonModificarEmpleados = (Button)findViewById(R.id.button_Gestionar_Empleados);
+        buttonModificarInventario = (Button)findViewById(R.id.button_Modificar_Inventario);
+
+
         String nombre = getIntent().getStringExtra("nombre");
         String puesto = getIntent().getStringExtra("puesto");
+
+        if(puesto.compareTo(administrador)==0){
+            buttonModificarEmpleados.setEnabled(true);
+            buttonModificarInventario.setEnabled(true);
+        }
+        else{
+            buttonModificarEmpleados.setEnabled(false);
+            buttonModificarInventario.setEnabled(false);
+        }
 
         textViewNombre = (TextView)findViewById(R.id.textView_Nombre_Usuario);
         textViewNombre.setText(nombre);

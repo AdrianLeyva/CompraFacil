@@ -15,7 +15,7 @@ public class ProvisionalEmpleadosBD {
     public ProvisionalEmpleadosBD(){
         listaEmpleado = new ArrayList<Empleado>();
         listaEmpleado.add(new Empleado("Kevin Gamboa", "Gerente", "kevin", "gamboa"));
-        listaEmpleado.add(new Empleado("Adrian Leyva", "Cajero", "adrian", "leyva"));
+        listaEmpleado.add(new Empleado("Adrian Leyva", "Administrador", "adrian", "leyva"));
         listaEmpleado.add(new Empleado("Daniel Baas", "Gerente", "daniel", "baas"));
 
     }
