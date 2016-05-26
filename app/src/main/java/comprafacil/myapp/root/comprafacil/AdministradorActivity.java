@@ -58,8 +58,7 @@ public class AdministradorActivity extends AppCompatActivity {
         textViewPuesto.setText(puesto);
 
         listaProductos = new ArrayList<>();
-        ProvisionalInventario provisionalInventario = new ProvisionalInventario();
-        listaProductos = provisionalInventario.getListaProductos();
+
 
 
         AdaptadorSeries adaptador = new AdaptadorSeries(this);
