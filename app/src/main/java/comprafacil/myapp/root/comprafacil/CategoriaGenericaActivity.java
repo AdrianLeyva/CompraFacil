@@ -59,61 +59,88 @@ public class CategoriaGenericaActivity extends AppCompatActivity {
 
 
         ControladorProducto controladorProducto = new ControladorProducto();
-
         listaProductoBD = controladorProducto.getProductosPersistencia();
 
         switch (categoria) {
             case "bebidas":
 
                 for (int i = 0; i < listaProductoBD.size(); i++) {
-                    if (listaProductoBD.get(i).getCategoria().compareTo("Bebidas") == 0) {
+
+                 if (listaProductoBD.get(i).getCategoria().compareTo("Bebidas") == 0) {
                         listaProductoCategoriaSelec.add(listaProductoBD.get(i));
-                        Toast toast = Toast.makeText(this, "ffffff", Toast.LENGTH_SHORT);
-                        toast.show();
+                        listaProductoCategoriaSelec.get(i).setCantidad(1);
+
                     }
-                    return listaProductoCategoriaSelec;
-                    //break;
+
+
                 }
+                return listaProductoCategoriaSelec;
 
             case "botanas":
                 for (int i = 0; i < listaProductoBD.size(); i++) {
-                    if (listaProductoBD.get(i).getCategoria().toString() == "Botanas") {
+
+                    if (listaProductoBD.get(i).getCategoria().compareTo("Botanas") == 0) {
+                        listaProductoBD.get(i).setCantidad(1);
                         listaProductoCategoriaSelec.add(listaProductoBD.get(i));
+
                     }
-                    break;
+
+
                 }
+                return listaProductoCategoriaSelec;
 
             case "dulces":
                 for (int i = 0; i < listaProductoBD.size(); i++) {
-                    if (listaProductoBD.get(i).getCategoria().toString() == "Dulces") {
+
+                    if (listaProductoBD.get(i).getCategoria().compareTo("Dulces") == 0) {
+                        listaProductoBD.get(i).setCantidad(1);
                         listaProductoCategoriaSelec.add(listaProductoBD.get(i));
+
+
                     }
-                    break;
+
+
                 }
+                return listaProductoCategoriaSelec;
 
             case "postres":
                 for (int i = 0; i < listaProductoBD.size(); i++) {
-                    if (listaProductoBD.get(i).getCategoria().toString() == "Postres") {
+
+                    if (listaProductoBD.get(i).getCategoria().compareTo("Postres") == 0) {
+                        listaProductoBD.get(i).setCantidad(1);
                         listaProductoCategoriaSelec.add(listaProductoBD.get(i));
+
                     }
-                    break;
+
+
                 }
+                return listaProductoCategoriaSelec;
 
             case "galletas":
                 for (int i = 0; i < listaProductoBD.size(); i++) {
-                    if (listaProductoBD.get(i).getCategoria().toString() == "Galletas") {
+
+                    if (listaProductoBD.get(i).getCategoria().compareTo("Galletas") == 0) {
+                        listaProductoBD.get(i).setCantidad(1);
                         listaProductoCategoriaSelec.add(listaProductoBD.get(i));
+
                     }
-                    break;
+
+
                 }
+                return listaProductoCategoriaSelec;
 
             case "sabritas":
                 for (int i = 0; i < listaProductoBD.size(); i++) {
-                    if (listaProductoBD.get(i).getCategoria().toString() == "Sabritas") {
+
+                    if (listaProductoBD.get(i).getCategoria().compareTo("Sabritas") == 0) {
+                        listaProductoBD.get(i).setCantidad(1);
                         listaProductoCategoriaSelec.add(listaProductoBD.get(i));
+
                     }
-                    break;
+
+
                 }
+                return listaProductoCategoriaSelec;
 
             default:
                 break;

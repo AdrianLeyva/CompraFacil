@@ -13,14 +13,14 @@ public class ProvisionalInventario {
 
     public ProvisionalInventario() {
         listaProductos = new ArrayList<Producto>();
-        listaProductos.add(new Producto("Bebidas", "Pepsi", 10, 23));
-        listaProductos.add(new Producto("Bebidas", "Cocadf", 10, 23));
-        listaProductos.add(new Producto("Bebidas", "Sprite", 10, 23));
-        listaProductos.add(new Producto("Bebidas", "Manzana", 10, 23));
-        listaProductos.add(new Producto("Bebidas", "Te", 10, 23));
-        listaProductos.add(new Producto("Bebidas", "Del valfdgle", 10, 23));
-        listaProductos.add(new Producto("Bebidas", "Fanta", 10, 23));
-        listaProductos.add(new Producto("Bebidas", "Fresca", 10, 23));
+        listaProductos.add(new Producto("Bebidas", "Pepsi", 17, 23));
+        listaProductos.add(new Producto("Bebidas", "Cocadf", 14, 23));
+        listaProductos.add(new Producto("Bebidas", "Sprite", 15, 23));
+        listaProductos.add(new Producto("Bebidas", "Manzana", 16, 23));
+        listaProductos.add(new Producto("Bebidas", "Te", 17, 23));
+        listaProductos.add(new Producto("Bebidas", "Del valfdgle", 18, 23));
+        listaProductos.add(new Producto("Bebidas", "Fanta", 19, 23));
+        listaProductos.add(new Producto("Bebidas", "Fresca", 11, 23));
 
         listaProductos.add(new Producto("Galletas", "Pepsi", 10, 23));
         listaProductos.add(new Producto("Galletas", "Codgdsca", 10, 23));

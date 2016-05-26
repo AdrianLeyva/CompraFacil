@@ -33,7 +33,7 @@ public class UsuarioActivity extends AppCompatActivity {
 
 
         ProvisionalInventario provisionalInventario = new ProvisionalInventario();
-        listaProductos = provisionalInventario.getListaProductos();
+        listaProductos = new ArrayList<Producto>();
         adaptador = new AdaptadorCarrito(this);
         listView1 = (ListView) findViewById(R.id.listView_CarritoCompras);
         listView1.setAdapter(adaptador);
