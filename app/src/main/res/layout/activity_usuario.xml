@@ -48,7 +48,7 @@
                     android:layout_below="@+id/textView_tituloUsuario"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:onClick="abrirCategoriaGenerica" />
+                    android:onClick="abrirBebidas" />
 
                 <Button
                     android:layout_width="wrap_content"
@@ -59,7 +59,8 @@
                     android:textColor="#ffffff"
                     android:background="#912121"
                     android:layout_alignTop="@+id/button_CategoriaBebidas"
-                    android:layout_centerHorizontal="true" />
+                    android:layout_centerHorizontal="true"
+                    android:onClick="abrirBotanas" />
 
                 <Button
                     android:layout_width="wrap_content"
@@ -71,7 +72,8 @@
                     android:background="#912121"
                     android:layout_alignTop="@+id/button_CategoriaBotanas"
                     android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
+                    android:layout_alignParentEnd="true"
+                    android:onClick="abrirDulces" />
 
                 <Button
                     android:layout_width="wrap_content"
@@ -84,7 +86,8 @@
                     android:layout_marginTop="151dp"
                     android:layout_below="@+id/button_CategoriaBotanas"
                     android:layout_alignRight="@+id/button_CategoriaBotanas"
-                    android:layout_alignEnd="@+id/button_CategoriaBotanas" />
+                    android:layout_alignEnd="@+id/button_CategoriaBotanas"
+                    android:onClick="abrirGalletas" />
 
                 <Button
                     android:layout_width="wrap_content"
@@ -97,7 +100,8 @@
                     android:layout_alignParentBottom="true"
                     android:layout_toLeftOf="@+id/button_CategoriaBotanas"
                     android:layout_toStartOf="@+id/button_CategoriaBotanas"
-                    android:layout_marginBottom="40dp"/>
+                    android:layout_marginBottom="40dp"
+                    android:onClick="abrirPostres" />
 
                 <Button
                     android:layout_width="wrap_content"
@@ -109,7 +113,8 @@
                     android:background="#912121"
                     android:layout_alignTop="@+id/button_CategoriaPostres"
                     android:layout_toRightOf="@+id/button_CategoriaGalletas"
-                    android:layout_toEndOf="@+id/button_CategoriaGalletas" />
+                    android:layout_toEndOf="@+id/button_CategoriaGalletas"
+                    android:onClick="abrirSabritas" />
             </RelativeLayout>
         </LinearLayout>
 

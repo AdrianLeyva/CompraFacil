@@ -44,6 +44,64 @@ public class UsuarioActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+//Metodos de apertura Botoner Categorias.
+    public void abrirBebidas(View view){
+        Intent i= new Intent(this, CategoriaGenericaActivity.class);
+
+        i.putExtra("categoria","bebidas");
+
+
+        startActivity(i);
+    }
+
+    public void abrirBotanas(View view){
+        Intent i= new Intent(this, CategoriaGenericaActivity.class);
+
+        i.putExtra("categoria","botanas");
+
+
+        startActivity(i);
+    }
+
+    public void abrirDulces(View view){
+        Intent i= new Intent(this, CategoriaGenericaActivity.class);
+
+        i.putExtra("categoria","dulces");
+
+
+        startActivity(i);
+    }
+
+    public void abrirSabritas(View view){
+        Intent i= new Intent(this, CategoriaGenericaActivity.class);
+
+        i.putExtra("categoria","sabritas");
+
+
+        startActivity(i);
+    }
+
+    public void abrirPostres(View view){
+        Intent i= new Intent(this, CategoriaGenericaActivity.class);
+
+        i.putExtra("categoria","postres");
+
+
+        startActivity(i);
+    }
+
+    public void abrirGalletas(View view){
+        Intent i= new Intent(this, CategoriaGenericaActivity.class);
+
+        i.putExtra("categoria","galletas");
+
+
+        startActivity(i);
+    }
+// Fin de metodos de los botones.
+
+
+
     private class AdaptadorCarrito extends ArrayAdapter<Producto> {
 
         AppCompatActivity appCompatActivity;

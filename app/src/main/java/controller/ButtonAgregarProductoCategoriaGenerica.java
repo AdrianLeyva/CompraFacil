@@ -19,7 +19,8 @@ public class ButtonAgregarProductoCategoriaGenerica implements View.OnClickListe
     private Context context;
     private ArrayAdapter<Producto> adaptador;
     private int h=0;
-    private int bandera = 0;
+    private int bandera;
+    private String nombre;
 
     public ButtonAgregarProductoCategoriaGenerica(int position, ArrayList<Producto> listaProductoCarrito, Context context, ArrayList<Producto> listaCategoria, ArrayAdapter<Producto> adaptador){
         this.position = position;
@@ -27,30 +28,32 @@ public class ButtonAgregarProductoCategoriaGenerica implements View.OnClickListe
         this.listaCategoria = listaCategoria;
         this.context = context;
         this.adaptador = adaptador;
+        this.bandera = 0;
     }
 
     @Override
     public void onClick(View v) {
 
+        for (int i=0; i<listaProductoCarrito.size(); i++){
+            this.nombre = listaProductoCarrito.get(i).getNombre().toString();
 
-     //   for (int i=0; i<listaProductoCarrito.size(); i++){
-           /* if (listaProductoCarrito.get(i).getNombre() == listaCategoria.get(i).getNombre()){
+
+            if (listaProductoCarrito.get(i).getNombre().compareTo(listaCategoria.get(position).getNombre()) == 0 ){
                 h = Integer.valueOf(listaProductoCarrito.get(i).getCantidad());
                 h += 1;
 
                 listaProductoCarrito.get(i).setCantidad(h);
                 adaptador.notifyDataSetChanged();
-                Toast toast = Toast.makeText(context, "Si funciona weeee", Toast.LENGTH_SHORT );
-                toast.show();
                 bandera = 1;
                 break;
             }
-            if(bandera == 0){
-             */ listaProductoCarrito.add(listaCategoria.get(position));
-                adaptador.notifyDataSetChanged();
-         //   }
 
-       // }
+
+        }
+        if(bandera == 0){
+            listaProductoCarrito.add(listaCategoria.get(position));
+            adaptador.notifyDataSetChanged();
+        }
 
     }
 }
