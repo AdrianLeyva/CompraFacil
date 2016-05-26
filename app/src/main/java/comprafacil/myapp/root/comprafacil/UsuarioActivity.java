@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 import controller.ButtonCarritoAgregarOnClick;
@@ -26,11 +28,13 @@ public class UsuarioActivity extends AppCompatActivity {
     private ArrayList<Producto> listaProductos;
     private AdaptadorCarrito adaptador;
     private ListView listView1;
+    private TextView textViewTotalCompra;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usuario);
 
+        textViewTotalCompra = (TextView)findViewById(R.id.textView_ValorTotalCompra);
 
         ProvisionalInventario provisionalInventario = new ProvisionalInventario();
         listaProductos = new ArrayList<Producto>();
@@ -125,10 +129,10 @@ public class UsuarioActivity extends AppCompatActivity {
             textViewPrecio.setText("$ " + String.valueOf(listaProductos.get(position).getPrecio()));
 
             Button buttonAgregar = (Button)item.findViewById(R.id.button_CarritoMas);
-            buttonAgregar.setOnClickListener(new ButtonCarritoAgregarOnClick(position,textViewCantidad,listaProductos,appCompatActivity));
+            buttonAgregar.setOnClickListener(new ButtonCarritoAgregarOnClick(position,textViewCantidad,listaProductos,appCompatActivity,textViewTotalCompra));
 
             Button buttonRestar = (Button)item.findViewById(R.id.button_CarritoMenos);
-            buttonRestar.setOnClickListener(new ButtonCarritoRestarOnClick(position,textViewCantidad,listaProductos,appCompatActivity,adaptador));
+            buttonRestar.setOnClickListener(new ButtonCarritoRestarOnClick(position,textViewCantidad,listaProductos,appCompatActivity,adaptador,textViewTotalCompra));
 
             Button buttonEliminar = (Button)item.findViewById(R.id.button_CarritoEliminar);
             buttonEliminar.setOnClickListener(new ButtonCarritoEliminarOnClick(position,listaProductos,adaptador));

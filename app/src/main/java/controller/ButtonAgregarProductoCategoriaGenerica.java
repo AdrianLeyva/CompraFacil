@@ -3,6 +3,7 @@ package controller;
 import android.content.Context;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -21,14 +22,16 @@ public class ButtonAgregarProductoCategoriaGenerica implements View.OnClickListe
     private int h=0;
     private int bandera;
     private String nombre;
+    private TextView textViewTotalCompra;
 
-    public ButtonAgregarProductoCategoriaGenerica(int position, ArrayList<Producto> listaProductoCarrito, Context context, ArrayList<Producto> listaCategoria, ArrayAdapter<Producto> adaptador){
+    public ButtonAgregarProductoCategoriaGenerica(int position, ArrayList<Producto> listaProductoCarrito, Context context, ArrayList<Producto> listaCategoria, ArrayAdapter<Producto> adaptador,TextView textViewTotalCompra){
         this.position = position;
         this.listaProductoCarrito = listaProductoCarrito;
         this.listaCategoria = listaCategoria;
         this.context = context;
         this.adaptador = adaptador;
         this.bandera = 0;
+        this.textViewTotalCompra = textViewTotalCompra;
     }
 
     @Override
@@ -54,6 +57,18 @@ public class ButtonAgregarProductoCategoriaGenerica implements View.OnClickListe
             listaProductoCarrito.add(listaCategoria.get(position));
             adaptador.notifyDataSetChanged();
         }
+
+
+        //Calcular el precio total del carrito de compras
+        float total = 0;
+        for(int i=0;i<listaProductoCarrito.size();i++){
+
+            int cantidad = listaProductoCarrito.get(i).getCantidad();
+            float precio = listaProductoCarrito.get(i).getPrecio();
+
+            total = (total) + cantidad*precio;
+        }
+        textViewTotalCompra.setText("$" + String.valueOf(total));
 
     }
 }

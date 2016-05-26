@@ -18,13 +18,15 @@ public class ButtonCarritoRestarOnClick implements View.OnClickListener {
     private ArrayList<Producto> listaProducto;
     private Context context;
     private ArrayAdapter<Producto> adaptador;
+    private TextView textViewTotalCompra;
 
-    public ButtonCarritoRestarOnClick(int position,TextView cantidad,ArrayList<Producto> listaProducto,Context context,ArrayAdapter<Producto> adaptador){
+    public ButtonCarritoRestarOnClick(int position,TextView cantidad,ArrayList<Producto> listaProducto,Context context,ArrayAdapter<Producto> adaptador,TextView textViewTotalCompra){
         this.position = position;
         this.cantidad = cantidad;
         this.listaProducto = listaProducto;
         this.context = context;
         this.adaptador = adaptador;
+        this.textViewTotalCompra = textViewTotalCompra;
     }
 
     @Override
@@ -40,5 +42,15 @@ public class ButtonCarritoRestarOnClick implements View.OnClickListener {
             cantidad.setText(String.valueOf(totalProductos - 1));
         }
 
+        //Calcular el precio total del carrito de compras
+        float total = 0;
+        for(int i=0;i<listaProducto.size();i++){
+
+            int cantidad = listaProducto.get(i).getCantidad();
+            float precio = listaProducto.get(i).getPrecio();
+
+            total = (total) + cantidad*precio;
+        }
+        textViewTotalCompra.setText("$" + String.valueOf(total));
     }
 }

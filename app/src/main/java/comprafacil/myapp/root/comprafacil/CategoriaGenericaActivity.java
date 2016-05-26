@@ -30,13 +30,14 @@ public class CategoriaGenericaActivity extends AppCompatActivity {
     private ListView listViewProductos;
     private ListView listView1;
     private String categoria;
-
+    private TextView textViewTotalCompra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categoria_generica);
 
+        textViewTotalCompra = (TextView)findViewById(R.id.textView_ValorTotalCompra);
         categoria = getIntent().getStringExtra("categoria");
 
 
@@ -169,7 +170,7 @@ public class CategoriaGenericaActivity extends AppCompatActivity {
                 textViewPrecio.setText("$ " +String.valueOf(listaProductos.get(position).getPrecio()));
 
                 Button buttonAgregarProCategoria = (Button) item.findViewById(R.id.button_categoria_generica);
-                buttonAgregarProCategoria.setOnClickListener(new ButtonAgregarProductoCategoriaGenerica(position, listaProductosCarrito, appCompatActivity, listaProductos, adaptador2));
+                buttonAgregarProCategoria.setOnClickListener(new ButtonAgregarProductoCategoriaGenerica(position, listaProductosCarrito, appCompatActivity, listaProductos, adaptador2,textViewTotalCompra));
 
                 return (item);
             }
@@ -198,13 +199,13 @@ public class CategoriaGenericaActivity extends AppCompatActivity {
                 textViewPrecio.setText("$ " + String.valueOf(listaProductosCarrito.get(position).getPrecio()));
 
                 Button buttonAgregar = (Button) item.findViewById(R.id.button_CarritoMas);
-                buttonAgregar.setOnClickListener(new ButtonCarritoAgregarOnClick(position, textViewCantidad, listaProductosCarrito, appCompatActivity));
+                buttonAgregar.setOnClickListener(new ButtonCarritoAgregarOnClick(position, textViewCantidad, listaProductosCarrito, appCompatActivity,textViewTotalCompra));
 
                 Button buttonRestar = (Button) item.findViewById(R.id.button_CarritoMenos);
-                buttonRestar.setOnClickListener(new ButtonCarritoRestarOnClick(position, textViewCantidad, listaProductosCarrito, appCompatActivity, adaptador2));
+                buttonRestar.setOnClickListener(new ButtonCarritoRestarOnClick(position, textViewCantidad, listaProductosCarrito, appCompatActivity, adaptador2,textViewTotalCompra));
 
                 Button buttonEliminar = (Button) item.findViewById(R.id.button_CarritoEliminar);
-                buttonEliminar.setOnClickListener(new ButtonCarritoEliminarOnClick(position, listaProductosCarrito, adaptador2, adaptador));
+                buttonEliminar.setOnClickListener(new ButtonCarritoEliminarOnClick(position, listaProductosCarrito, adaptador2, adaptador,textViewTotalCompra));
                 return (item);
             }
         }
