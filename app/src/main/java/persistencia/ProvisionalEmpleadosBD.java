@@ -24,4 +24,8 @@ public class ProvisionalEmpleadosBD {
         return listaEmpleado;
     }
 
+    public void actualizarPersistencia(ArrayList<Empleado> listaEmpleado){
+
+    }
+
 }

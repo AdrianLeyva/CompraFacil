@@ -14,6 +14,14 @@ public class ButtonCarritoEliminarOnClick implements View.OnClickListener {
     private int position;
     private ArrayList<Producto> listaProductos;
     private ArrayAdapter<Producto> adaptador;
+    private ArrayAdapter<Producto> adaptador2;
+
+    public ButtonCarritoEliminarOnClick(int position,ArrayList<Producto> listaProductos,ArrayAdapter<Producto> adaptador, ArrayAdapter<Producto> adaptador2){
+        this.position = position;
+        this.listaProductos = listaProductos;
+        this.adaptador = adaptador;
+        this.adaptador2 = adaptador2;
+    }
 
     public ButtonCarritoEliminarOnClick(int position,ArrayList<Producto> listaProductos,ArrayAdapter<Producto> adaptador){
         this.position = position;
@@ -24,5 +32,6 @@ public class ButtonCarritoEliminarOnClick implements View.OnClickListener {
     public void onClick(View v) {
         listaProductos.remove(position);
         adaptador.notifyDataSetChanged();
+        adaptador2.notifyDataSetChanged();
     }
 }
