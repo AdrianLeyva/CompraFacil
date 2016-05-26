@@ -166,7 +166,7 @@ public class CategoriaGenericaActivity extends AppCompatActivity {
                 textViewNombre.setText(listaProductos.get(position).getNombre());
 
                 TextView textViewPrecio = (TextView) item.findViewById(R.id.elemento_categoriagenerica_precio);
-                textViewPrecio.setText(String.valueOf(listaProductos.get(position).getPrecio()));
+                textViewPrecio.setText("$ " +String.valueOf(listaProductos.get(position).getPrecio()));
 
                 Button buttonAgregarProCategoria = (Button) item.findViewById(R.id.button_categoria_generica);
                 buttonAgregarProCategoria.setOnClickListener(new ButtonAgregarProductoCategoriaGenerica(position, listaProductosCarrito, appCompatActivity, listaProductos, adaptador2));
@@ -195,7 +195,7 @@ public class CategoriaGenericaActivity extends AppCompatActivity {
                 textViewCantidad.setText(String.valueOf(listaProductosCarrito.get(position).getCantidad()));
 
                 TextView textViewPrecio = (TextView) item.findViewById(R.id.textView_CarritoPrecio);
-                textViewPrecio.setText(String.valueOf(listaProductosCarrito.get(position).getPrecio()));
+                textViewPrecio.setText("$ " + String.valueOf(listaProductosCarrito.get(position).getPrecio()));
 
                 Button buttonAgregar = (Button) item.findViewById(R.id.button_CarritoMas);
                 buttonAgregar.setOnClickListener(new ButtonCarritoAgregarOnClick(position, textViewCantidad, listaProductosCarrito, appCompatActivity));

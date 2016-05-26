@@ -122,7 +122,7 @@ public class UsuarioActivity extends AppCompatActivity {
             textViewCantidad.setText(String.valueOf(listaProductos.get(position).getCantidad()));
 
             TextView textViewPrecio = (TextView) item.findViewById(R.id.textView_CarritoPrecio);
-            textViewPrecio.setText(String.valueOf(listaProductos.get(position).getPrecio()));
+            textViewPrecio.setText("$ " + String.valueOf(listaProductos.get(position).getPrecio()));
 
             Button buttonAgregar = (Button)item.findViewById(R.id.button_CarritoMas);
             buttonAgregar.setOnClickListener(new ButtonCarritoAgregarOnClick(position,textViewCantidad,listaProductos,appCompatActivity));

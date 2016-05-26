@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/background_usuario">
 
 
         <LinearLayout
@@ -17,12 +18,14 @@
             android:layout_width="875dp"
             android:layout_height="match_parent"
             android:layout_gravity="left|top"
-            android:background="#a1a1a1">
+            android:background="@drawable/background_usuario">
 
             <RelativeLayout
                 android:layout_width="864dp"
                 android:layout_height="match_parent"
-                android:layout_gravity="center_vertical">
+                android:layout_gravity="center_vertical"
+                android:background="#000000"
+                android:alpha=".9">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -122,13 +125,16 @@
             android:orientation="horizontal"
             android:layout_width="401dp"
             android:layout_height="match_parent"
-            android:layout_gravity="right|center_vertical">
+            android:layout_gravity="right|center_vertical"
+            android:background="#000000"
+            android:alpha=".9">
 
             <RelativeLayout
                 android:layout_width="405dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:background="#000000">
+                android:background="#000000"
+                android:alpha=".9">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -150,7 +156,9 @@
                     android:layout_below="@+id/textView_tituloCarritoCompras"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:id="@+id/linearLayout2">
+                    android:id="@+id/linearLayout2"
+                    android:alpha=".9"
+                    android:background="#000000">
 
                     <LinearLayout
                         android:orientation="horizontal"
@@ -194,7 +202,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/linearLayout2"
                     android:layout_centerHorizontal="true"
-                    android:id="@+id/linearLayout5">
+                    android:id="@+id/linearLayout5"
+                    android:alpha=".9">
 
                     <ListView
                         android:layout_width="wrap_content"

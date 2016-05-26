@@ -51,7 +51,7 @@
     <string name="editText_Usuario_empleado">Usuario...</string>
     <string name="editText_Contraseña_empleado">Contraseña...</string>
     <string name="button_Actualizar_empleado">Guardar cambios</string>
-    <string name="button_Restablecer_empleado">Restablecer emplea</string>
+    <string name="button_Restablecer_empleado">Restablecer empleados</string>
     <string name="button_Agregar_empleado">Agregar</string>
     <string name="button_eliminarProducto">Eliminar</string>
     <string name="textView_Agregar_Nuevo_Empleado">Agregar nuevo empleado</string>
