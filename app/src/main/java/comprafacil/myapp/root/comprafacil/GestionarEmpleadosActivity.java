@@ -1,5 +1,9 @@
 package comprafacil.myapp.root.comprafacil;
 
+/**
+ * Created by kevin gamboa on 21/05/16.
+ */
+
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

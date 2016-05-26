@@ -1,5 +1,9 @@
 package comprafacil.myapp.root.comprafacil;
 
+/**
+ * Created by kevin gamboa on 24/04/16.
+ */
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
