@@ -114,7 +114,7 @@ public class UsuarioActivity extends AppCompatActivity {
             super(context, R.layout.list_item_carrito_compras, listaProductos);
             appCompatActivity = context;
         }
-
+//comentario
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = appCompatActivity.getLayoutInflater();
             View item = inflater.inflate(R.layout.list_item_carrito_compras, null);
