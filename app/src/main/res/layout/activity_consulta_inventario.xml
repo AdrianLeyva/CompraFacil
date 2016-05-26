@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background_consulta_inventario">
 
 
     <LinearLayout
@@ -10,15 +11,16 @@
         android:layout_height="wrap_content"
 
 
-        android:id="@+id/linearLayout">
+        android:id="@+id/linearLayout"
+        android:background="#000000"
+        android:alpha=".8">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:background="#787880"
-            android:orientation="horizontal"
-            android:alpha=".75">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="match_parent"
@@ -38,8 +40,7 @@
             android:layout_weight="2"
             android:layout_gravity="left"
             android:background="#acabab"
-            android:orientation="horizontal"
-            android:alpha=".75">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="match_parent"
@@ -59,8 +60,7 @@
             android:layout_weight="2"
             android:layout_gravity="left"
             android:background="#787880"
-            android:orientation="horizontal"
-            android:alpha=".75">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="match_parent"
@@ -80,8 +80,7 @@
             android:layout_weight="2"
             android:layout_gravity="left"
             android:background="#acabab"
-            android:orientation="horizontal"
-            android:alpha=".75">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="match_parent"
@@ -103,7 +102,9 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/linearLayout"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:background="#000000"
+        android:alpha=".8">
 
         <ListView
             android:layout_width="wrap_content"
