@@ -70,7 +70,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:layout_width="10dp"
+                android:layout_width="30dp"
                 android:layout_height="25dp"
                 android:text="+"
                 android:layout_marginLeft="10dp"
@@ -88,7 +88,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:layout_width="10dp"
+                android:layout_width="30dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="10dp"
                 android:text="-"
@@ -106,7 +106,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:layout_width="15dp"
+                android:layout_width="30dp"
                 android:layout_height="25dp"
                 android:text="X"
                 android:layout_marginLeft="10dp"

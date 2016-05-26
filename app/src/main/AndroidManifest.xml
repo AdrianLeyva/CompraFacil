@@ -35,7 +35,8 @@
 
         <activity android:name=".GestionarInventario" />
         <activity android:name=".GestionarEmpleadosActivity" />
-        <activity android:name=".UsuarioActivity"></activity>
+        <activity android:name=".UsuarioActivity" />
+        <activity android:name=".CategoriaGenericaActivity"></activity>
     </application>
 
 </manifest>

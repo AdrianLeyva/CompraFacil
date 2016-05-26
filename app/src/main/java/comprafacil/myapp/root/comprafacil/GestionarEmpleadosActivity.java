@@ -3,6 +3,8 @@ package comprafacil.myapp.root.comprafacil;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,10 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import controller.EditTextClaveEmpleadoWatcher;
+import controller.EditTextNombreEmpleadosWatcher;
+import controller.EditTextPuestoEmpleadoWatcher;
+import controller.EditTextUsuarioEmpleadoWatcher;
 import model.Empleado;
 import controller.ControladorEmpleado;
 import model.Producto;
@@ -24,7 +30,7 @@ public class GestionarEmpleadosActivity extends AppCompatActivity {
     private ArrayList<Empleado> listaEmpleado;
     private AdaptadorEmpleado adaptador;
     private ControladorEmpleado controladorEmpleado;
-    private Context context;
+    private EditText editTextNombre;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +45,7 @@ public class GestionarEmpleadosActivity extends AppCompatActivity {
         listaEmpleado = new ArrayList<Empleado>();
         listaEmpleado = controladorEmpleado.getListaEmpleados();
 
+
         //Realiza el proceso del adaptador, para mandarle la vista de los elementos
         adaptador = new AdaptadorEmpleado(this);
         ListView lv_Empleados = (ListView) findViewById(R.id.lv_elementos_gestionar_empleados);
@@ -49,8 +56,13 @@ public class GestionarEmpleadosActivity extends AppCompatActivity {
 
     public void restablecerEmpleados(View view){
         listaEmpleado.clear();
-        //listaEmpleado.add(new Empleado("dgshs ","hgsdjg "," jfjt"," jtth"));
         adaptador.notifyDataSetChanged();
+    }
+
+    public void actualizarEmpleados(View view){
+        controladorEmpleado.actualizarEmpleados(listaEmpleado);
+        Toast toast = Toast.makeText(this, "Ya funciona weee", Toast.LENGTH_SHORT);
+        toast.show();
     }
 
 
@@ -93,17 +105,21 @@ public class GestionarEmpleadosActivity extends AppCompatActivity {
            LayoutInflater inflater = appCompatActivity.getLayoutInflater();
            View item = inflater.inflate(R.layout.list_item_gestionar_empleados, null);
 
-           TextView tvnombre_empleados = (TextView) item.findViewById(R.id.tv_nombre_empleados);
+           EditText tvnombre_empleados = (EditText) item.findViewById(R.id.tv_nombre_empleados);
            tvnombre_empleados.setHint(listaEmpleado.get(position).getNombre());
+           tvnombre_empleados.addTextChangedListener(new EditTextNombreEmpleadosWatcher(position,listaEmpleado,tvnombre_empleados,appCompatActivity));
 
-           TextView tvpuesto_empleados = (TextView) item.findViewById(R.id.tv_puesto_empleado);
+           EditText tvpuesto_empleados = (EditText) item.findViewById(R.id.tv_puesto_empleado);
            tvpuesto_empleados.setHint(listaEmpleado.get(position).getPuesto());
+           tvpuesto_empleados.addTextChangedListener(new EditTextPuestoEmpleadoWatcher(position, listaEmpleado, tvpuesto_empleados, appCompatActivity));
 
-           TextView tvusuario_empleados = (TextView) item.findViewById(R.id.tv_usuario_empleado);
+           EditText tvusuario_empleados = (EditText) item.findViewById(R.id.tv_usuario_empleado);
            tvusuario_empleados.setHint(listaEmpleado.get(position).getUsuario());
+           tvusuario_empleados.addTextChangedListener(new EditTextUsuarioEmpleadoWatcher(position,listaEmpleado, tvusuario_empleados, appCompatActivity));
 
-           TextView tvcontraseña_empleados = (TextView) item.findViewById(R.id.et_contraseña_empleado);
+           EditText tvcontraseña_empleados = (EditText) item.findViewById(R.id.et_contraseña_empleado);
            tvcontraseña_empleados.setHint(listaEmpleado.get(position).getClave());
+           tvcontraseña_empleados.addTextChangedListener(new EditTextClaveEmpleadoWatcher(position, listaEmpleado, tvcontraseña_empleados, appCompatActivity));
 
            return (item);
        }

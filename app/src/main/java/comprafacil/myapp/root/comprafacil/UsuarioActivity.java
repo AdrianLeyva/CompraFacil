@@ -1,5 +1,6 @@
 package comprafacil.myapp.root.comprafacil;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,6 +22,7 @@ import model.Producto;
 import persistencia.ProvisionalInventario;
 
 public class UsuarioActivity extends AppCompatActivity {
+    //Variables
     private ArrayList<Producto> listaProductos;
     private AdaptadorCarrito adaptador;
     private ListView listView1;
@@ -31,11 +33,74 @@ public class UsuarioActivity extends AppCompatActivity {
 
 
         ProvisionalInventario provisionalInventario = new ProvisionalInventario();
-        listaProductos = provisionalInventario.getListaProductos();
+        listaProductos = new ArrayList<Producto>();
         adaptador = new AdaptadorCarrito(this);
         listView1 = (ListView) findViewById(R.id.listView_CarritoCompras);
         listView1.setAdapter(adaptador);
     }
+
+    public void abrirCategoriaGenerica(View view){
+        Intent i = new Intent(this, CategoriaGenericaActivity.class);
+        startActivity(i);
+    }
+
+//Metodos de apertura Botoner Categorias.
+    public void abrirBebidas(View view){
+        Intent i= new Intent(this, CategoriaGenericaActivity.class);
+
+        i.putExtra("categoria","bebidas");
+
+
+        startActivity(i);
+    }
+
+    public void abrirBotanas(View view){
+        Intent i= new Intent(this, CategoriaGenericaActivity.class);
+
+        i.putExtra("categoria","botanas");
+
+
+        startActivity(i);
+    }
+
+    public void abrirDulces(View view){
+        Intent i= new Intent(this, CategoriaGenericaActivity.class);
+
+        i.putExtra("categoria","dulces");
+
+
+        startActivity(i);
+    }
+
+    public void abrirSabritas(View view){
+        Intent i= new Intent(this, CategoriaGenericaActivity.class);
+
+        i.putExtra("categoria","sabritas");
+
+
+        startActivity(i);
+    }
+
+    public void abrirPostres(View view){
+        Intent i= new Intent(this, CategoriaGenericaActivity.class);
+
+        i.putExtra("categoria","postres");
+
+
+        startActivity(i);
+    }
+
+    public void abrirGalletas(View view){
+        Intent i= new Intent(this, CategoriaGenericaActivity.class);
+
+        i.putExtra("categoria","galletas");
+
+
+        startActivity(i);
+    }
+// Fin de metodos de los botones.
+
+
 
     private class AdaptadorCarrito extends ArrayAdapter<Producto> {
 
@@ -63,7 +128,7 @@ public class UsuarioActivity extends AppCompatActivity {
             buttonAgregar.setOnClickListener(new ButtonCarritoAgregarOnClick(position,textViewCantidad,listaProductos,appCompatActivity));
 
             Button buttonRestar = (Button)item.findViewById(R.id.button_CarritoMenos);
-            buttonRestar.setOnClickListener(new ButtonCarritoRestarOnClick(position,textViewCantidad,listaProductos,appCompatActivity));
+            buttonRestar.setOnClickListener(new ButtonCarritoRestarOnClick(position,textViewCantidad,listaProductos,appCompatActivity,adaptador));
 
             Button buttonEliminar = (Button)item.findViewById(R.id.button_CarritoEliminar);
             buttonEliminar.setOnClickListener(new ButtonCarritoEliminarOnClick(position,listaProductos,adaptador));

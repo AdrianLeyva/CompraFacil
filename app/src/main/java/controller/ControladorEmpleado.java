@@ -22,4 +22,9 @@ public class ControladorEmpleado {
 
         return listaEmpleados;
     }
+
+    public void actualizarEmpleados(ArrayList<Empleado> listaEmpleados){
+        persistenciaEmpleados.actualizarPersistencia(listaEmpleados);
+
+    }
 }
