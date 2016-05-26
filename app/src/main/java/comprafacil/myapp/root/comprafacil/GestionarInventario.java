@@ -32,11 +32,12 @@ public class GestionarInventario extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gestionar_inventario);
 
         //hace la actividad FULLSCREEN
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        setContentView(R.layout.activity_gestionar_inventario);
 
         listaProductos = new ArrayList<>();
         ProvisionalInventario provisionalInventario = new ProvisionalInventario();
