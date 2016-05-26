@@ -34,7 +34,7 @@
     <string name="Comprar">Comprar</string>
     <string name="textView_Agregar_Nuevo_Producto">Agregar nuevos productos</string>
     <string name="textView_Titulo_Carrito_Compras">Carrito de compras</string>
-    <string name="textView_Titulo_Usuario_Activity">Bienvenido a iSnacks</string>
+    <string name="textView_Titulo_Usuario_Activity">Bienvenido a Comprafacil</string>
     <string name="editText_Nombre_Producto">Nombre...</string>
     <string name="editText_Categoria_Producto">Categoria...</string>
     <string name="editText_Precio_Producto">Precio...</string>

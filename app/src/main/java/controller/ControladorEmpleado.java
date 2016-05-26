@@ -5,7 +5,7 @@ import persistencia.ProvisionalEmpleadosBD;
 import java.util.ArrayList;
 
 /**
- * Created by root_user on 24/04/16.
+ * Created by kevin gamboa on 24/04/16.
  */
 public class ControladorEmpleado {
     private ArrayList<Empleado> listaEmpleados;
