@@ -1,9 +1,13 @@
 package controller;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
 import java.util.ArrayList;
 import comprafacil.myapp.root.comprafacil.ValidarUsuarioActivity;
 import model.Empleado;
 import persistencia.Conexion;
+import persistencia.EmpleadoSQLiteOpenHelper;
 import persistencia.ProvisionalEmpleadosBD;
 
 /**
@@ -21,7 +25,7 @@ public class ControladorAdministrador {
     }
 
 
-    public Empleado verificarUsuario() {
+    /*public Empleado verificarUsuario() {
         ProvisionalEmpleadosBD provisionalEmpleadosBD = new ProvisionalEmpleadosBD();
         listaEmpleados = new ArrayList<>();
         listaEmpleados = provisionalEmpleadosBD.getListaEmpleado();
@@ -33,6 +37,24 @@ public class ControladorAdministrador {
             }
         }
         return empleado;
+    }*/
+
+    public Empleado verificarUsuario() {
+        EmpleadoSQLiteOpenHelper admin = new EmpleadoSQLiteOpenHelper(vista, "Compra_Facil", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+        String Usuario = vista.getUsuario();
+        String Clave = vista.getClave();
+        Cursor fila = bd.rawQuery("select *  from Empleado", null);
+        while (fila.moveToNext()){
+            if ((Usuario.compareTo(fila.getString(2)) == 0) && (Clave.compareTo(fila.getString(3)) == 0)){
+                empleado = new Empleado(fila.getString(0), fila.getString(1), fila.getString(2), fila.getString(3));
+                bd.close();
+                return empleado;
+            }
+        }
+        bd.close();
+        return empleado;
+
     }
 
         /*
