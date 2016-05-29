@@ -31,7 +31,7 @@ public class ModoUsuarioActivity extends AppCompatActivity {
         //restablecerTablaEmpleados();
         //inicializarEmpleadosBD();
     }
-
+//metodos
     public void abrirModoAdministrador(View view){
         Intent i = new Intent(this, ValidarUsuarioActivity.class);
         startActivity(i);
