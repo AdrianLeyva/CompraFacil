@@ -15,6 +15,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import java.util.ArrayList;
+
+import controller.ControladorInventario;
 import model.Producto;
 import controller.ControladorProducto;
 
@@ -32,9 +34,10 @@ public class ConsultaInventarioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_consulta_inventario);
 
         //Se extrae la lista de los productos desde la persistencia.
-        controlador = new ControladorProducto();
+       // controlador = new ControladorProducto();
+        ControladorInventario controladorInventario = new ControladorInventario(this);
         listaProductos = new ArrayList<Producto>();
-        listaProductos = controlador.getProductosPersistencia();
+        listaProductos = controladorInventario.getInventario();
 
         //Realiza el proceso del adaptador, para mandarle la vista de los elementos
         AdaptadorInventario adaptador = new AdaptadorInventario(this);

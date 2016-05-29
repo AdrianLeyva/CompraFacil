@@ -58,6 +58,8 @@ public class ButtonAgregarProductoCategoriaGenerica implements View.OnClickListe
             adaptador.notifyDataSetChanged();
         }
 
+        ControladorPedidos controladorPedidos = new ControladorPedidos(context);
+        controladorPedidos.agregarProducto(listaProductoCarrito);
 
         //Calcular el precio total del carrito de compras
         float total = 0;

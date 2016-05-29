@@ -1,8 +1,14 @@
 package comprafacil.myapp.root.comprafacil;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
+
+import controller.ButtonConfirmarPedidoOnClick;
+import controller.ControladorPedidos;
 import model.Producto;
+import persistencia.InventarioSQLiteOpenHelper;
 import persistencia.ProvisionalInventario;
 
 import android.os.Bundle;
@@ -24,6 +30,8 @@ public class AdministradorActivity extends AppCompatActivity {
     private  Button buttonModificarEmpleados;
     private Button buttonModificarInventario;
     private String administrador = "Administrador";
+    private AdaptadorSeries adaptador;
+    private AdministradorActivity vista = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -58,10 +66,13 @@ public class AdministradorActivity extends AppCompatActivity {
         textViewPuesto.setText(puesto);
 
         listaProductos = new ArrayList<>();
+        ControladorPedidos controladorPedidos = new ControladorPedidos(this);
+        listaProductos = controladorPedidos.getPedidos();
 
+        listaProductos.add(0,new Producto("","",0,0));
+        listaProductos.add(new Producto("","",0,0));
 
-
-        AdaptadorSeries adaptador = new AdaptadorSeries(this);
+        adaptador = new AdaptadorSeries(this);
         ListView listView1 = (ListView) findViewById(R.id.listView_Pedidos);
         listView1.setAdapter(adaptador);
 
@@ -88,7 +99,6 @@ public class AdministradorActivity extends AppCompatActivity {
     }
 
 
-
     class AdaptadorSeries extends ArrayAdapter<Producto> {
 
         AppCompatActivity appCompatActivity;
@@ -104,6 +114,7 @@ public class AdministradorActivity extends AppCompatActivity {
             View item = inflater.inflate(R.layout.list_item_pedidos, null);
 
             int lastPosition = listaProductos.size() - 1;
+
             if(position == 0){
 
                 TextView categoria = (TextView) item.findViewById(R.id.textView_CategoriaProducto);
@@ -114,6 +125,7 @@ public class AdministradorActivity extends AppCompatActivity {
 
                 Button buttonConfirmar = (Button) item.findViewById(R.id.button_ConfirmarPedido);
                 buttonConfirmar.setVisibility(buttonConfirmar.VISIBLE);
+                buttonConfirmar.setOnClickListener(new ButtonConfirmarPedidoOnClick(adaptador,listaProductos,vista));
 
             }
             else if(position>0 && position<lastPosition){

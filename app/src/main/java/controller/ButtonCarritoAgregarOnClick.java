@@ -34,6 +34,9 @@ public class ButtonCarritoAgregarOnClick implements View.OnClickListener {
         listaProducto.get(position).setCantidad(totalProductos + 1);
         cantidad.setText(String.valueOf(totalProductos + 1));
 
+        ControladorPedidos controladorPedidos = new ControladorPedidos(context);
+        controladorPedidos.agregarProducto(listaProducto);
+
         //Calcular el precio total del carrito de compras
         float total = 0;
         for(int i=0;i<listaProducto.size();i++){

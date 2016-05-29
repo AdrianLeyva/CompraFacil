@@ -6,6 +6,7 @@ import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 
+import comprafacil.myapp.root.comprafacil.GestionarInventario;
 import model.Producto;
 
 /**
@@ -16,17 +17,21 @@ public class ButtonEliminarOnClick implements View.OnClickListener {
     ArrayList<Producto> listaProductos;
     Context context;
     ArrayAdapter<Producto> adaptador;
+    GestionarInventario vista;
 
-    public ButtonEliminarOnClick(int position,ArrayList<Producto> listaProductos,Context context,ArrayAdapter<Producto> adaptador){
+    public ButtonEliminarOnClick(int position,ArrayList<Producto> listaProductos,Context context,ArrayAdapter<Producto> adaptador,GestionarInventario vista){
         this.position = position;
         this.listaProductos = listaProductos;
         this.context = context;
         this.adaptador = adaptador;
+        this.vista = vista;
     }
 
     @Override
     public void onClick(View v) {
         listaProductos.remove(position);
+        ControladorInventario controladorInventario = new ControladorInventario(vista);
+        controladorInventario.eliminarProducto(vista, listaProductos, position);
         adaptador.notifyDataSetChanged();
     }
 }

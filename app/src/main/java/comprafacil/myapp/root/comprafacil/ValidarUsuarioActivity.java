@@ -38,7 +38,7 @@ public class ValidarUsuarioActivity extends AppCompatActivity {
         if (v.getId() == R.id.button_validarUsuario) {
 
             ControladorAdministrador controladorAdministrador = new ControladorAdministrador(this);
-            Empleado empleado = controladorAdministrador.verificarUsuario();
+            empleado = controladorAdministrador.verificarUsuario();
             if(empleado == null){
                 Toast toast = Toast.makeText(this,"Validación incorrecta", Toast.LENGTH_SHORT);
                 toast.show();

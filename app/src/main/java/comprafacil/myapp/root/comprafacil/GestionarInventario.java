@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import controller.ButtonAgregarOnClick;
 import controller.ButtonEliminarOnClick;
 import controller.ButtonRestarOnClick;
+import controller.ControladorInventario;
 import controller.EditTextCategoriaWatcher;
 import controller.EditTextNombreWatcher;
 import controller.EditTextPrecioWatcher;
@@ -29,6 +30,7 @@ public class GestionarInventario extends AppCompatActivity {
     private ArrayList<Producto> listaProductos;
     private AdaptadorSeries adaptador;
     private ListView listView1;
+    private GestionarInventario vista = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +42,9 @@ public class GestionarInventario extends AppCompatActivity {
         setContentView(R.layout.activity_gestionar_inventario);
 
         listaProductos = new ArrayList<>();
-        ProvisionalInventario provisionalInventario = new ProvisionalInventario();
-        listaProductos = provisionalInventario.getListaProductos();
+        //ProvisionalInventario provisionalInventario = new ProvisionalInventario();
+        ControladorInventario controladorInventario = new ControladorInventario(this);
+        listaProductos = controladorInventario.getInventario();
 
         adaptador = new AdaptadorSeries(this);
         listView1 = (ListView) findViewById(R.id.listView_ModificarInventario);
@@ -68,7 +71,9 @@ public class GestionarInventario extends AppCompatActivity {
                     return 0;
                 }
             }
-            listaProductos.add(new Producto(categoria,nombre,precio,cantidad));
+            listaProductos.add(new Producto(categoria, nombre, precio, cantidad));
+            ControladorInventario controladorInventario = new ControladorInventario(this);
+            controladorInventario.agregarNuevoProducto(categoria,nombre,precio,cantidad);
             adaptador.notifyDataSetChanged();
             return 0;
         }catch (Exception e){
@@ -80,12 +85,16 @@ public class GestionarInventario extends AppCompatActivity {
     }
 
     public void actualizarInventario(View view){
+        ControladorInventario controladorInventario = new ControladorInventario(this);
+        controladorInventario.actualizarInventario(listaProductos);
         adaptador.notifyDataSetChanged();
         Toast toast = Toast.makeText(this,"Datos actualizados", Toast.LENGTH_SHORT);
         toast.show();
     }
 
     public void restablecerInventario(View view){
+        ControladorInventario controladorInventario = new ControladorInventario(this);
+        controladorInventario.restablecerInventario();
         listaProductos.clear();
         adaptador.notifyDataSetChanged();
     }
@@ -127,7 +136,7 @@ public class GestionarInventario extends AppCompatActivity {
             buttonRestarProducto.setOnClickListener(new ButtonRestarOnClick(position,cantidad,listaProductos,appCompatActivity));
 
             Button buttonEliminarProducto = (Button)item.findViewById(R.id.button_eliminarProducto);
-            buttonEliminarProducto.setOnClickListener(new ButtonEliminarOnClick(position,listaProductos,appCompatActivity,adaptador));
+            buttonEliminarProducto.setOnClickListener(new ButtonEliminarOnClick(position,listaProductos,appCompatActivity,adaptador,vista));
           return (item);
         }
     }

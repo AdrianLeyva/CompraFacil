@@ -21,6 +21,8 @@ import controller.ButtonAgregarProductoCategoriaGenerica;
 import controller.ButtonCarritoAgregarOnClick;
 import controller.ButtonCarritoEliminarOnClick;
 import controller.ButtonCarritoRestarOnClick;
+import controller.ControladorInventario;
+import controller.ControladorPedidos;
 import controller.ControladorProducto;
 import model.Producto;
 import persistencia.ProvisionalInventario;
@@ -35,6 +37,7 @@ public class CategoriaGenericaActivity extends AppCompatActivity {
     private ListView listView1;
     private String categoria;
     private TextView textViewTotalCompra;
+    private CategoriaGenericaActivity vista = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +54,34 @@ public class CategoriaGenericaActivity extends AppCompatActivity {
         listViewProductos.setAdapter(adaptador);
 
         listaProductosCarrito = new ArrayList<Producto>();
+        ControladorPedidos controladorPedidos = new ControladorPedidos(this);
+        listaProductosCarrito = controladorPedidos.getPedidos();
+
+        //Calcular el precio total del carrito de compras
+        float total = 0;
+        for(int i=0;i<listaProductosCarrito.size();i++){
+
+            int cantidad = listaProductosCarrito.get(i).getCantidad();
+            float precio = listaProductosCarrito.get(i).getPrecio();
+
+            total = (total) + cantidad*precio;
+        }
+        textViewTotalCompra.setText("$" + String.valueOf(total));
+
+        //Segundo adaptador
         adaptador2 = new AdaptadorCarrito(this);
         listView1 = (ListView) findViewById(R.id.listView_CarritoCompras);
         listView1.setAdapter(adaptador2);
+    }
+
+    public void confirmarCompra(View view){
+        ControladorPedidos controladorPedidos = new ControladorPedidos(this);
+        controladorPedidos.confirmarCompra(adaptador2,listaProductosCarrito,textViewTotalCompra);
+    }
+
+    public void cancelarCompra(View view){
+        ControladorPedidos controladorPedidos = new ControladorPedidos(this);
+        controladorPedidos.cancelarCompra(adaptador2,listaProductosCarrito,textViewTotalCompra);
     }
 
 
@@ -63,8 +91,8 @@ public class CategoriaGenericaActivity extends AppCompatActivity {
         ArrayList<Producto> listaProductoCategoriaSelec = new ArrayList<Producto>();
 
 
-        ControladorProducto controladorProducto = new ControladorProducto();
-        listaProductoBD = controladorProducto.getProductosPersistencia();
+        ControladorInventario controladorInventario = new ControladorInventario(this);
+        listaProductoBD = controladorInventario.getInventario();
 
         switch (categoria) {
             case "bebidas":
@@ -209,7 +237,7 @@ public class CategoriaGenericaActivity extends AppCompatActivity {
                 buttonRestar.setOnClickListener(new ButtonCarritoRestarOnClick(position, textViewCantidad, listaProductosCarrito, appCompatActivity, adaptador2,textViewTotalCompra));
 
                 Button buttonEliminar = (Button) item.findViewById(R.id.button_CarritoEliminar);
-                buttonEliminar.setOnClickListener(new ButtonCarritoEliminarOnClick(position, listaProductosCarrito, adaptador2, adaptador,textViewTotalCompra));
+                buttonEliminar.setOnClickListener(new ButtonCarritoEliminarOnClick(position, listaProductosCarrito, adaptador2, adaptador,textViewTotalCompra,vista));
                 return (item);
             }
         }

@@ -6,20 +6,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 import controller.ButtonCarritoAgregarOnClick;
 import controller.ButtonCarritoEliminarOnClick;
 import controller.ButtonCarritoRestarOnClick;
+import controller.ControladorPedidos;
 import model.Producto;
 import persistencia.ProvisionalInventario;
 
@@ -29,6 +25,30 @@ public class UsuarioActivity extends AppCompatActivity {
     private AdaptadorCarrito adaptador;
     private ListView listView1;
     private TextView textViewTotalCompra;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        listaProductos = new ArrayList<Producto>();
+        ControladorPedidos controladorPedidos = new ControladorPedidos(this);
+        listaProductos = controladorPedidos.getPedidos();
+        adaptador = new AdaptadorCarrito(this);
+        listView1 = (ListView) findViewById(R.id.listView_CarritoCompras);
+        listView1.setAdapter(adaptador);
+        adaptador.notifyDataSetChanged();
+
+        //Calcular el precio total del carrito de compras
+        float total = 0;
+        for(int i=0;i<listaProductos.size();i++){
+
+            int cantidad = listaProductos.get(i).getCantidad();
+            float precio = listaProductos.get(i).getPrecio();
+
+            total = (total) + cantidad*precio;
+        }
+        textViewTotalCompra.setText("$" + String.valueOf(total));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,11 +56,24 @@ public class UsuarioActivity extends AppCompatActivity {
 
         textViewTotalCompra = (TextView)findViewById(R.id.textView_ValorTotalCompra);
 
-        ProvisionalInventario provisionalInventario = new ProvisionalInventario();
         listaProductos = new ArrayList<Producto>();
+        ControladorPedidos controladorPedidos = new ControladorPedidos(this);
+        listaProductos = controladorPedidos.getPedidos();
         adaptador = new AdaptadorCarrito(this);
         listView1 = (ListView) findViewById(R.id.listView_CarritoCompras);
         listView1.setAdapter(adaptador);
+        adaptador.notifyDataSetChanged();
+
+        //Calcular el precio total del carrito de compras
+        float total = 0;
+        for(int i=0;i<listaProductos.size();i++){
+
+            int cantidad = listaProductos.get(i).getCantidad();
+            float precio = listaProductos.get(i).getPrecio();
+
+            total = (total) + cantidad*precio;
+        }
+        textViewTotalCompra.setText("$" + String.valueOf(total));
     }
 
     public void abrirCategoriaGenerica(View view){
@@ -101,6 +134,16 @@ public class UsuarioActivity extends AppCompatActivity {
 
 
         startActivity(i);
+    }
+
+    public void confirmarCompra(View view){
+        ControladorPedidos controladorPedidos = new ControladorPedidos(this);
+        controladorPedidos.confirmarCompra(adaptador,listaProductos,textViewTotalCompra);
+    }
+
+    public void cancelarCompra(View view){
+        ControladorPedidos controladorPedidos = new ControladorPedidos(this);
+        controladorPedidos.cancelarCompra(adaptador,listaProductos,textViewTotalCompra);
     }
 // Fin de metodos de los botones.
 

@@ -21,7 +21,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
+import controller.ControladorAdministrador;
 import controller.EditTextClaveEmpleadoWatcher;
 import controller.EditTextNombreEmpleadosWatcher;
 import controller.EditTextPuestoEmpleadoWatcher;
@@ -47,7 +49,7 @@ public class GestionarEmpleadosActivity extends AppCompatActivity {
         //Se extra la lista de empleados desde la base de datos.
         controladorEmpleado = new ControladorEmpleado();
         listaEmpleado = new ArrayList<Empleado>();
-        listaEmpleado = controladorEmpleado.getListaEmpleados();
+        listaEmpleado = controladorEmpleado.getEmpleados(this);
 
 
         //Realiza el proceso del adaptador, para mandarle la vista de los elementos
@@ -59,13 +61,15 @@ public class GestionarEmpleadosActivity extends AppCompatActivity {
     }
 
     public void restablecerEmpleados(View view){
+        ControladorEmpleado controladorEmpleado = new ControladorEmpleado();
+        controladorEmpleado.restablecerEmpleados(listaEmpleado,this);
         listaEmpleado.clear();
         adaptador.notifyDataSetChanged();
     }
 
     public void actualizarEmpleados(View view){
-        controladorEmpleado.actualizarEmpleados(listaEmpleado);
-        Toast toast = Toast.makeText(this, "Ya funciona weee", Toast.LENGTH_SHORT);
+        controladorEmpleado.actualizarEmpleados(listaEmpleado,this);
+        Toast toast = Toast.makeText(this, "Datos actualizados", Toast.LENGTH_SHORT);
         toast.show();
     }
 
@@ -91,7 +95,9 @@ public class GestionarEmpleadosActivity extends AppCompatActivity {
                 return 0;
             }
         }
-        listaEmpleado.add(new Empleado(nombre,puesto,usuario,contraseña));
+        listaEmpleado.add(new Empleado(nombre, puesto, usuario, contraseña));
+        ControladorEmpleado controladorEmpleado = new ControladorEmpleado();
+        controladorEmpleado.agregarNuevoEmpleado(this,nombre,puesto,usuario,contraseña);
         adaptador.notifyDataSetChanged();
         return 0;
     }

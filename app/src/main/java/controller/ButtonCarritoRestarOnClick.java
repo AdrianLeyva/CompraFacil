@@ -42,6 +42,10 @@ public class ButtonCarritoRestarOnClick implements View.OnClickListener {
             cantidad.setText(String.valueOf(totalProductos - 1));
         }
 
+        //Actualizar base de datos
+        ControladorPedidos controladorPedidos = new ControladorPedidos(context);
+        controladorPedidos.restarProducto(listaProducto);
+
         //Calcular el precio total del carrito de compras
         float total = 0;
         for(int i=0;i<listaProducto.size();i++){
