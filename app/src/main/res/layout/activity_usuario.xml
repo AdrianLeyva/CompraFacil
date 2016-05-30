@@ -40,13 +40,13 @@
                     android:layout_centerHorizontal="true" />
 
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="260dp"
+                    android:layout_height="150dp"
                     android:text="@string/button_Categoria_Bebidas"
+                    android:background="@drawable/background_bebidas"
                     android:id="@+id/button_CategoriaBebidas"
                     android:textSize="60sp"
-                    android:textColor="#ffffff"
-                    android:background="#912121"
+                    android:textColor="#000000"
                     android:layout_marginTop="138dp"
                     android:layout_below="@+id/textView_tituloUsuario"
                     android:layout_alignParentLeft="true"
@@ -54,52 +54,53 @@
                     android:onClick="abrirBebidas" />
 
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="290dp"
+                    android:layout_height="150dp"
                     android:text="@string/button_Categoria_Botanas"
                     android:id="@+id/button_CategoriaBotanas"
                     android:textSize="60sp"
-                    android:textColor="#ffffff"
-                    android:background="#912121"
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:background="@drawable/background_botanas"
                     android:layout_alignTop="@+id/button_CategoriaBebidas"
                     android:layout_centerHorizontal="true"
                     android:onClick="abrirBotanas" />
 
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="260dp"
+                    android:layout_height="150dp"
                     android:text="@string/button_Categoria_Dulces"
                     android:id="@+id/button_CategoriaDulces"
                     android:textSize="60sp"
                     android:textColor="#ffffff"
-                    android:background="#912121"
+                    android:background="@drawable/background_dulces"
                     android:layout_alignTop="@+id/button_CategoriaBotanas"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
                     android:onClick="abrirDulces" />
 
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="320dp"
+                    android:layout_height="150dp"
                     android:text="@string/button_Categoria_Galletas"
                     android:id="@+id/button_CategoriaGalletas"
                     android:textSize="60sp"
-                    android:textColor="#ffffff"
-                    android:background="#912121"
-                    android:layout_marginTop="151dp"
-                    android:layout_below="@+id/button_CategoriaBotanas"
-                    android:layout_alignRight="@+id/button_CategoriaBotanas"
-                    android:layout_alignEnd="@+id/button_CategoriaBotanas"
-                    android:onClick="abrirGalletas" />
+                    android:textColor="#000000"
+                    android:background="@drawable/background_galletas"
+                    android:onClick="abrirGalletas"
+                    android:layout_marginBottom="10dp"
+                    android:layout_above="@+id/button_CategoriaPostres"
+                    android:layout_toRightOf="@+id/button_CategoriaPostres"
+                    android:layout_toEndOf="@+id/button_CategoriaPostres" />
 
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="290dp"
+                    android:layout_height="150dp"
                     android:text="@string/button_Categoria_Postres"
                     android:id="@+id/button_CategoriaPostres"
                     android:textSize="60sp"
-                    android:textColor="#ffffff"
-                    android:background="#912121"
+                    android:textColor="#000000"
+                    android:background="@drawable/backgroud_postres"
                     android:layout_alignParentBottom="true"
                     android:layout_toLeftOf="@+id/button_CategoriaBotanas"
                     android:layout_toStartOf="@+id/button_CategoriaBotanas"
@@ -107,17 +108,17 @@
                     android:onClick="abrirPostres" />
 
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="350dp"
+                    android:layout_height="150dp"
                     android:text="@string/button_Categoria_Sabritas"
                     android:id="@+id/button_CategoriaSabritas"
                     android:textSize="60sp"
-                    android:textColor="#ffffff"
-                    android:background="#912121"
+                    android:textColor="#000000"
+                    android:background="@drawable/background_sabritas"
+                    android:onClick="abrirSabritas"
                     android:layout_alignTop="@+id/button_CategoriaPostres"
-                    android:layout_toRightOf="@+id/button_CategoriaGalletas"
-                    android:layout_toEndOf="@+id/button_CategoriaGalletas"
-                    android:onClick="abrirSabritas" />
+                    android:layout_alignRight="@+id/button_CategoriaDulces"
+                    android:layout_alignEnd="@+id/button_CategoriaDulces" />
             </RelativeLayout>
         </LinearLayout>
 
