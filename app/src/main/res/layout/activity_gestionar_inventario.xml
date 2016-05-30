@@ -99,27 +99,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:id="@+id/editText_CategoriaProducto"
-                android:hint="@string/editText_Categoria_Producto"
-                android:textSize="25sp"
-                android:background="#ffffff"
-                android:alpha=".8"
-                android:gravity="center"
-                android:layout_below="@+id/editText_NombreProducto"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:id="@+id/editText_PrecioProducto"
                 android:hint="@string/editText_Precio_Producto"
                 android:textSize="25sp"
                 android:background="#ffffff"
                 android:alpha=".8"
                 android:gravity="center"
-                android:layout_below="@+id/editText_CategoriaProducto"
+                android:layout_below="@+id/spinnerCategorias"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:inputType="numberDecimal" />
@@ -142,6 +128,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:text="Agregar"
@@ -152,7 +139,22 @@
                 android:textSize="20sp"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
+                android:layout_below="@id/editText_CantidadProducto"
                 android:onClick="agregarNuevoProducto" />
+
+            <Spinner
+                android:id="@+id/spinnerCategorias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:hint="@string/editText_Categoria_Producto"
+                android:textSize="25sp"
+                android:background="#ffffff"
+                android:alpha=".8"
+                android:gravity="center"
+                android:layout_below="@+id/editText_NombreProducto"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"/>
 
         </RelativeLayout>
     </FrameLayout>

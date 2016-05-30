@@ -41,12 +41,13 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/editText_Puesto"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textSize="30sp"
                 android:singleLine="true"
-                android:id="@+id/tv_puesto_empleado"
                 android:textColorHint="#ffffff"
-                android:textColor="#f4efef"/>
+                android:textColor="#f4efef"
+                />
         </LinearLayout>
 
         <LinearLayout

@@ -79,6 +79,8 @@ public class AdministradorActivity extends AppCompatActivity {
     }
     public void cerrarSesion(View view){
         finish();
+        Intent i = new Intent(this, ModoUsuarioActivity.class);
+        startActivity(i);
     }
 
 

@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -23,14 +24,15 @@ import controller.EditTextCategoriaWatcher;
 import controller.EditTextNombreWatcher;
 import controller.EditTextPrecioWatcher;
 import model.Producto;
-import persistencia.ProvisionalInventario;
 
 public class GestionarInventario extends AppCompatActivity {
 
     private ArrayList<Producto> listaProductos;
-    private AdaptadorSeries adaptador;
+    private AdaptadorProducto adaptador;
     private ListView listView1;
     private GestionarInventario vista = this;
+    private Spinner spinner1;
+    private String [] opciones = {"Bebidas", "Botanas", "Dulces", "Galletas", "Postres", "Sabritas"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,25 +48,31 @@ public class GestionarInventario extends AppCompatActivity {
         ControladorInventario controladorInventario = new ControladorInventario(this);
         listaProductos = controladorInventario.getInventario();
 
-        adaptador = new AdaptadorSeries(this);
+        adaptador = new AdaptadorProducto(this);
         listView1 = (ListView) findViewById(R.id.listView_ModificarInventario);
         listView1.setAdapter(adaptador);
+
+        //Creando el adaptador del spinner de categorias
+        spinner1 = (Spinner) findViewById(R.id.spinnerCategorias);
+        ArrayAdapter adaptadorCategorias= new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, opciones);
+        spinner1.setAdapter(adaptadorCategorias);
+
     }
 
     public int agregarNuevoProducto(View view){
         try{
             EditText editTextNombre = (EditText)findViewById(R.id.editText_NombreProducto);
-            EditText editTextCategoria = (EditText)findViewById(R.id.editText_CategoriaProducto);
+            //TextView textViewCategoria = (TextView) findViewById(R.id.tv_spinner_categoria);
             EditText editTextPrecio = (EditText)findViewById(R.id.editText_PrecioProducto);
             EditText editTextCantidad = (EditText)findViewById(R.id.editText_CantidadProducto);
 
             String nombre = editTextNombre.getText().toString();
-            String categoria = editTextCategoria.getText().toString();
+            String categoria = spinner1.getSelectedItem().toString();
             float precio = Float.valueOf(editTextPrecio.getText().toString());
             int cantidad = Integer.valueOf(editTextCantidad.getText().toString());
 
             for(int i=0;i<listaProductos.size();i++){
-                if(listaProductos.get(i).getNombre().compareTo(nombre) == 0  && listaProductos.get(i).getCategoria().compareTo(categoria) == 0){
+                if(listaProductos.get(i).getNombre().compareTo(nombre) == 0 && listaProductos.get(i).getCategoria().compareTo(categoria) == 0 ){
                     int j = listaProductos.get(i).getCantidad();
                     listaProductos.get(i).setCantidad(j + cantidad);
                     adaptador.notifyDataSetChanged();
@@ -100,11 +108,11 @@ public class GestionarInventario extends AppCompatActivity {
     }
 
 //clase del adaptador
-   class AdaptadorSeries extends ArrayAdapter<Producto> {
+   class AdaptadorProducto extends ArrayAdapter<Producto> {
 
         AppCompatActivity appCompatActivity;
 
-        AdaptadorSeries(AppCompatActivity context) {
+        AdaptadorProducto(AppCompatActivity context) {
             super(context, R.layout.list_item_gestionar_inventario, listaProductos);
             appCompatActivity = context;
         }
@@ -140,4 +148,5 @@ public class GestionarInventario extends AppCompatActivity {
           return (item);
         }
     }
+
 }

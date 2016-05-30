@@ -77,4 +77,17 @@ public class ControladorEmpleado {
         bd.delete("empleados",null,null);
         bd.close();
     }
+
+    public int getPuestoEmpleado(int position, ArrayList<Empleado> listaEmpleados ){
+        String puesto;
+        int positionPuesto;
+
+        puesto = listaEmpleados.get(position).getPuesto().toString();
+
+        if (puesto == "Administrador"){ positionPuesto = 1;}
+        if (puesto == "Cajero"){positionPuesto = 0;}
+        else positionPuesto = 0;
+
+        return positionPuesto;
+    }
 }

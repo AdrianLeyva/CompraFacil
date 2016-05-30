@@ -29,7 +29,7 @@ public class ModoUsuarioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_modo_usuario);
         //restablecerTablaInventario();
         //restablecerTablaEmpleados();
-        //inicializarEmpleadosBD();
+        inicializarEmpleadosBD();
     }
 //metodos
     public void abrirModoAdministrador(View view){
